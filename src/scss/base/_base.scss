@@ -1,0 +1,140 @@
+// -----------------------------------------------------------------------------
+// BASE
+// -----------------------------------------------------------------------------
+
+
+$defaultBackground: var(--background-color);
+
+$defaultColor: var(--foreground-color);
+$text-ghost: #ececec;
+$text-ghostShadow: -1px 0 1px #fff, 1px 0 1px #a2a2a2;
+
+
+
+@supports (font-variation-settings: normal) {
+  :root {
+    --sansFont: "Inter var";
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+  only screen and (min-device-pixel-ratio: 1.5),
+  only screen and (min-resolution: 1.5dppx) {
+  :root {
+    --displayScale: 2;
+    --pixel: 0.5px;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2.5),
+  only screen and (min-device-pixel-ratio: 2.5),
+  only screen and (min-resolution: 2.5dppx) {
+  :root {
+    --displayScale: 3;
+    --pixel: 0.34px;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 3.5),
+  only screen and (min-device-pixel-ratio: 3.5),
+  only screen and (min-resolution: 3.5dppx) {
+  :root {
+    --displayScale: 4;
+    --pixel: 0.25px;
+  }
+}
+
+
+
+html {
+  font-family: var(--sansFont);
+  font-size: var(--fontSize);
+  line-height: var(--lineHeight);
+  background: $defaultBackground;
+  color: $defaultColor;
+  letter-spacing: -0.01em;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-variant-ligatures: contextual common-ligatures;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "cv10" 1; /* G */
+}
+body {
+  display: block;
+  font-family: "Inter.var";
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  padding: calc(var(--lineHeight) * 2);
+  padding-bottom: calc(var(--lineHeight) * 3);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-weight: normal;
+}
+
+:root {
+  --fontSize: 15px;
+  --sansFont: "Inter.var";
+  --lineHeight: calc(var(--fontSize) * 1.5);
+  --baseline: calc(var(--lineHeight) / 2);
+  --blockSpacingTop: 0px;
+  --blockSpacingBottom: var(--lineHeight);
+  --hrThickness: 1px;
+  --h1-size: 2.8rem;
+  --h2-size: 2.2rem;
+  --h3-size: 1.4rem;
+  --h4-size: 1.1rem;
+  --columnGap: calc(var(--lineHeight) * 2);
+  --rowGap: var(--lineHeight);
+  --displayScale: 1;
+  --pixel: 1px;
+  --foreground-color-rgb: 0, 0, 0;
+  --foreground-color-a: 1;
+  --foreground-color: rgba(
+    var(--foreground-color-rgb),
+    var(--foreground-color-a)
+  );
+  --background-color: #fff;
+  --trackBg: #bdbdbd;
+  --trackFocus: #cacaca;
+  --thumbBg: #666;
+  --trackHeight: 1px;
+  --thumbHeight: 12px;
+  --thumbTouchHeight: 48px;
+  --sliderComponentBg: #f4f4f4;
+  --swiper-theme-color: #fafafa !important;
+}
+
+
+/* first element has no top margin */
+:first-child {
+  margin: unset;
+}
+:last-child {
+  margin-bottom: unset;
+}
+/* hr */
+hr:first-child {
+  margin-top: calc(var(--hrThickness) / -2);
+  margin-bottom: calc(var(--lineHeight) - calc(var(--hrThickness) / 2));
+}
+hr:last-child {
+  margin-top: calc(var(--lineHeight) - calc(var(--hrThickness) / 2));
+  margin-bottom: calc(var(--hrThickness) / -2);
+}
+hr,
+hr:only-child {
+  border: none;
+  background: var(--foreground-color);
+  height: var(--hrThickness);
+  margin-top: calc(var(--lineHeight) - calc(var(--hrThickness) / 2));
+  margin-bottom: calc(var(--lineHeight) - calc(var(--hrThickness) / 2));
+}
+* + hr:last-child {
+  /* hr following block has hrThickness removed from its top spacing */
+  margin-top: calc(var(--hrThickness) / -2);
+}
+hr:not(:first-child) {
+  /* note: collapses with preceeding block bottom margin */
+  margin-top: var(--lineHeight);
+  margin-bottom: calc(var(--lineHeight) - var(--hrThickness));
+}
+
