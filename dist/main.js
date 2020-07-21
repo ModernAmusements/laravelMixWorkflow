@@ -11162,19 +11162,32 @@ bindTapableOption('debug-mode', toggleDebugMode);
 bindTapableOption('base-grid', toggleBaseGrid);
 bindTapableOption('inverted', toggleInvertedMode);
 bindTapableOption('size-mode', toggleSizeMode);
-/*
 
 function handleKeyPress(key) {
-    switch (key) {
-        case "d": case "D": toggleDebugMode(); return true
-        case "g": case "G": toggleBaseGrid(); return true
-        case "i": case "I": toggleInvertedMode(); return true
-        case "s": case "S": toggleSizeMode(); return true
-    }
-    return false
-}
+  switch (key) {
+    case "d":
+    case "D":
+      toggleDebugMode();
+      return true;
 
-*/
+    case "g":
+    case "G":
+      toggleBaseGrid();
+      return true;
+
+    case "i":
+    case "I":
+      toggleInvertedMode();
+      return true;
+
+    case "s":
+    case "S":
+      toggleSizeMode();
+      return true;
+  }
+
+  return false;
+}
 
 document.addEventListener('keypress', function (ev) {
   if (!ev.metaKey && !ev.ctrlKey && !ev.altKey && handleKeyPress(ev.key)) {
@@ -14063,10 +14076,10 @@ $(".work-content").each(function () {
 
 /***/ }),
 
-/***/ "./src/scss/main.scss":
-/*!****************************!*\
-  !*** ./src/scss/main.scss ***!
-  \****************************/
+/***/ "./src/scss/index.scss":
+/*!*****************************!*\
+  !*** ./src/scss/index.scss ***!
+  \*****************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -14075,16 +14088,16 @@ $(".work-content").each(function () {
 /***/ }),
 
 /***/ 0:
-/*!************************************************************************************************!*\
-  !*** multi ./src/js/main.js ./src/js/swiper.min.js ./src/js/main-type.js ./src/scss/main.scss ***!
-  \************************************************************************************************/
+/*!*************************************************************************************************!*\
+  !*** multi ./src/js/main.js ./src/js/swiper.min.js ./src/js/main-type.js ./src/scss/index.scss ***!
+  \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/main.js */"./src/js/main.js");
 __webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/swiper.min.js */"./src/js/swiper.min.js");
 __webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/main-type.js */"./src/js/main-type.js");
-module.exports = __webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/scss/main.scss */"./src/scss/main.scss");
+module.exports = __webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/scss/index.scss */"./src/scss/index.scss");
 
 
 /***/ })

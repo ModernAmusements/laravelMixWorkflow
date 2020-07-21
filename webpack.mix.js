@@ -14,7 +14,7 @@ mix.js([
 ], 'dist/')
 
 
-mix.sass('src/scss/main.scss', 'dist/')
+mix.sass('src/scss/index.scss', 'dist/')
     
 // Full API
 // mix.js(src, output);

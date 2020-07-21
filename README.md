@@ -37,4 +37,5 @@ node_modules/.bin/webpack --config=node_modules/laravel-mix/setup/webpack.config
 
 
 # Worlflow 1.
-npm install for nodemolus
+npm install for nodeModules
+refresh file view in vscode

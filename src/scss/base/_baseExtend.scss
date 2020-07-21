@@ -1,0 +1,544 @@
+/* block */
+address,
+article,
+aside,
+blockquote,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+nav,
+ol,
+p,
+pre,
+table,
+tfoot,
+ul,
+video {
+  margin-top: var(--blockSpacingTop);
+  margin-bottom: var(--blockSpacingBottom);
+}
+
+/* first element has no top margin */
+:first-child {
+  margin-top: unset;
+}
+
+:last-child {
+  margin-bottom: unset;
+}
+
+/* hr */
+hr:first-child {
+  margin-top: calc(var(--hrThickness) / -2);
+  margin-bottom: calc(var(--lineHeight) - calc(var(--hrThickness) / 2));
+}
+
+hr:last-child {
+  margin-top: calc(var(--lineHeight) - calc(var(--hrThickness) / 2));
+  margin-bottom: calc(var(--hrThickness) / -2);
+}
+
+hr,
+hr:only-child {
+  border: none;
+  background: var(--foreground-color);
+  height: var(--hrThickness);
+  margin-top: calc(var(--lineHeight) - calc(var(--hrThickness) / 2));
+  margin-bottom: calc(var(--lineHeight) - calc(var(--hrThickness) / 2));
+}
+
+* + hr:last-child {
+  /* hr following block has hrThickness removed from its top spacing */
+  margin-top: calc(var(--hrThickness) / -2);
+}
+
+hr:not(:first-child) {
+  /* note: collapses with preceeding block bottom margin */
+  margin-top: var(--lineHeight);
+  margin-bottom: calc(var(--lineHeight) - var(--hrThickness));
+}
+
+
+/* text style modifiers */
+b,
+strong,
+.bold {
+  font-weight: 600;
+}
+
+i,
+em,
+.italic {
+  font-style: italic;
+}
+
+/* preformatted text */
+pre,
+code,
+tt,
+.code,
+.monospace {
+  font-family: var(--monoFont), Inconsolata, Menlo, monospace;
+  font-weight: 430;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+/*pre { white-space: pre-wrap; }*/
+/*code { white-space: nowrap; }*/
+b pre,
+b code,
+b tt,
+b .code,
+b .monospace {
+  font-weight: 600;
+}
+
+pre b,
+code b,
+tt b,
+.code b,
+.monospace b {
+  font-weight: 600;
+  font-weight: 580;
+}
+
+pre {
+  white-space: pre;
+  word-wrap: normal;
+  overflow-x: auto;
+  display: block;
+}
+
+pre code,
+pre tt {
+  white-space: pre;
+  word-wrap: normal;
+}
+
+
+h1,
+.h1 {
+  font-weight: 300;
+  letter-spacing: -0.05em;
+  font-size: var(--h1-size);
+  line-height: calc(var(--lineHeight) * 2);
+  margin-left: calc(var(--h1-size) / -22);
+  margin-top: calc(var(--lineHeight) * 2);
+  margin-bottom: var(--lineHeight);
+  word-break: break-word;
+}
+
+h1.single-line {
+  margin-top: var(--lineHeight);
+  padding-top: calc(var(--lineHeight) * 0.5);
+  padding-bottom: calc(var(--lineHeight) * 0.5);
+}
+
+h1.single-line:first-child {
+  margin-top: 0;
+  padding-bottom: calc(var(--lineHeight) * 0.5);
+}
+
+h2,
+.h2 {
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  font-size: var(--h2-size);
+  line-height: calc(var(--lineHeight) * 2);
+  margin-left: calc(var(--h2-size) / -26);
+  margin-bottom: var(--lineHeight);
+}
+
+* + h2,
+h2.single-line {
+  margin-top: var(--lineHeight);
+  padding-top: calc(var(--lineHeight) * 0.5);
+  padding-bottom: calc(var(--lineHeight) * 0.5);
+  margin-bottom: 0;
+}
+
+h2.single-line:first-child {
+  margin-top: unset;
+}
+
+h3,
+.h3 {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  font-size: var(--h3-size);
+}
+
+h4,
+.h4 {
+  font-weight: 500;
+  letter-spacing: -0.012em;
+  font-size: var(--h4-size);
+}
+
+.thin {
+  font-weight: 300;
+}
+
+h3.single-line,
+h4.single-line {
+  padding-bottom: calc(var(--baseline) * 1.25);
+  margin-bottom: 0;
+}
+
+h3 + h1,
+h4 + h1,
+h3 + h1.single-line,
+h4 + h1.single-line {
+  margin-top: calc(var(--baseline) * 3);
+}
+
+h3.single-line + h1.single-line,
+h4.single-line + h1.single-line,
+h3.single-line + h1,
+h4.single-line + h1,
+h3.single-line + h2.single-line,
+h4.single-line + h2.single-line,
+h3.single-line + h2,
+h4.single-line + h2 {
+  margin-top: var(--lineHeight);
+}
+
+h3 + h2,
+h4 + h2,
+h3 + h2.single-line,
+h4 + h2.single-line {
+  margin-top: var(--baseline);
+}
+
+h5,
+h6,
+.h5,
+.h6 {
+  font-weight: 670;
+  letter-spacing: -0.015em;
+  margin-bottom: 0;
+}
+
+/* large headers */
+h1.large,
+.h1.large {
+  --h1-size: 4rem;
+  line-height: calc(var(--lineHeight) * 3);
+  font-weight: 730;
+}
+
+h1.xlarge,
+.h1.xlarge {
+  --h1-size: 5.5rem;
+  line-height: calc(var(--lineHeight) * 4);
+  font-weight: 740;
+}
+
+h1.xxlarge,
+.h1.xxlarge {
+  --h1-size: 7.5rem;
+  line-height: calc(var(--lineHeight) * 5);
+  font-weight: 500;
+}
+
+h1.xxxlarge,
+.h1.xxxlarge {
+  --h1-size: 10.5rem;
+  line-height: calc(var(--lineHeight) * 7);
+  font-weight: 760;
+}
+
+/* small text */
+.small {
+  font-size: 0.85rem;
+  line-height: var(--lineHeight);
+}
+/* small text */
+.medium {
+  font-size: 0.99rem;
+  line-height: var(--lineHeight);
+} 
+
+.xsmall {
+  font-size: 0.8em;
+  line-height: calc(var(--lineHeight) * 0.75);
+  padding-top: calc(var(--lineHeight) * 0.25);
+}
+
+.xxsmall {
+  font-size: 0.65em;
+  line-height: calc(var(--lineHeight) * 0.7);
+  padding-top: calc(var(--lineHeight) * 0.3);
+}
+
+.xxxsmall {
+  font-size: 0.5em;
+  line-height: calc(var(--lineHeight) * 0.5);
+  padding-bottom: calc(var(--lineHeight) * 0.25);
+}
+
+p,
+.p {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+/* anchor */
+a {
+  /* text-decoration: underline;
+  -webkit-text-decoration: underline rgba(0, 0, 0, 0.3);
+  text-decoration: underline rgba(0, 0, 0, 0.3);
+  white-space: nowrap; */
+}
+
+a:hover {
+  color: var(--blue);
+}
+
+h1 > a,
+h2 > a,
+h3 > a,
+h4 > a,
+h5 > a,
+h6 > a,
+.h1 > a,
+.h2 > a,
+.h3 > a,
+.h4 > a,
+.h5 > a,
+.h6 > a {
+  text-decoration: none;
+}
+
+h1 > a:hover,
+h2 > a:hover,
+h3 > a:hover,
+h4 > a:hover,
+h5 > a:hover,
+h6 > a:hover,
+.h1 > a:hover,
+.h2 > a:hover,
+.h3 > a:hover,
+.h4 > a:hover,
+.h5 > a:hover,
+.h6 > a:hover {
+  text-decoration: underline;
+  -webkit-text-decoration: underline rgba(0, 0, 0, 0.3);
+  text-decoration: underline rgba(0, 0, 0, 0.3);
+  color: inherit;
+}
+
+
+/* image */
+/* img,
+img:first-child,
+img:last-child {
+  display: block;
+  margin-top: var(--baseline);
+  margin-bottom: var(--baseline);
+}
+
+img:only-child {
+  margin: 0;
+}
+
+* + img {
+  margin-top: calc(var(--baseline) * -1);
+}
+
+img.fill,
+img.cover {
+  -o-object-fit: cover;
+  object-fit: cover;
+} */
+
+
+/* list */
+li {
+  margin-left: .2em;
+  margin-bottom: var(--baseline);
+}
+
+li > p + ul,
+li > p + ol {
+  /* <ul>|<ol> inside <li> that directly follows a <p> */
+  /* shave off 1 baseline from space in between paragraph and list */
+  margin-top: calc(var(--baseline) * -1);
+}
+
+li.task-list-item {
+  list-style-type: none;
+}
+
+li.task-list-item > input[type=checkbox] {
+  list-style: none;
+  margin-right: 0.5em;
+  margin-left: -1.4em;
+  background: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 1.5em;
+  height: var(--baseline);
+  display: inline-block;
+  position: relative;
+  border: none;
+  opacity: 1;
+  --outlineSvgUrl: url('data:image/svg+xml;utf8,<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1.75" y="1.75" width="14.5" height="14.5" rx="0.5" stroke="black" stroke-width="1.5"/></svg>');
+  --checkSvgUrl: url('data:image/svg+xml;utf8,<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.7 9.3L8.1 12.6L13.8 6.9L12.3 5.3L8.1 9.5L6.3 7.7L4.7 9.3Z" fill="black"/></svg>');
+}
+
+li.task-list-item > input[type=checkbox]:before,
+li.task-list-item > input[type=checkbox]:after {
+  display: block;
+  position: absolute;
+  content: "X";
+  color: transparent;
+  left: 0;
+  top: -0.25em;
+  bottom: -0.25em;
+  width: 1.1em;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  --webkit-touch-callout: none;
+}
+
+li.task-list-item > input[type=checkbox]:after {
+  /* box aligned with checkmark */
+  background-image: var(--outlineSvgUrl);
+}
+
+li.task-list-item > input[type=checkbox][checked]:before {
+  /* checkmark aligned with box */
+  background-image: var(--checkSvgUrl);
+}
+
+@supports ((-webkit-mask-image: linear-gradient(black, red)) or (mask-image: linear-gradient(black, red))) {
+  /* use mask so that check boxes matemplateColumnshes --foreground-color */
+  li.task-list-item > input[type=checkbox]:before,
+  li.task-list-item > input[type=checkbox]:after {
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center center;
+    mask-position: center center;
+  }
+  li.task-list-item > input[type=checkbox]:after {
+    /* box aligned with checkmark */
+    background: var(--foreground-color);
+    -webkit-mask-image: var(--outlineSvgUrl);
+    mask-image: var(--outlineSvgUrl);
+  }
+  li.task-list-item > input[type=checkbox][checked]:before {
+    /* checkmark aligned with box */
+    background: var(--foreground-color);
+    -webkit-mask-image: var(--checkSvgUrl);
+    mask-image: var(--checkSvgUrl);
+  }
+}
+
+.compact > li > p + ul,
+.compact > li > p + ol {
+  /* like above but for lists inside compact lists */
+  margin-top: calc(var(--blockSpacingBottom) * -1);
+}
+
+ul,
+ol {
+  list-style-position: outside;
+  --list-indentation: 2em;
+}
+
+ul.compact > li,
+ol.compact > li {
+  margin-bottom: 0;
+}
+
+ul {
+  padding-left: 1.3em;
+}
+
+/* custom start number -- undo reset */
+ol[start] {
+  -webkit-padding-start: var(--list-indentation);
+  padding-inline-start: var(--list-indentation);
+  /*list-style-position: inside;*/
+  /*& li {
+    color: red;
+  }*/
+}
+
+ol:not([start]) {
+  list-style: none;
+  counter-reset: ol-counter;
+  padding-left: var(--list-indentation);
+}
+
+ol:not([start]) > li {
+  counter-increment: ol-counter;
+  position: relative;
+}
+
+ol:not([start]) > li::before {
+  content: counter(ol-counter) ". ";
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  position: absolute;
+  --space: 0.5em;
+  --width: calc(var(--list-indentation) - var(--space));
+  left: calc(-1 * calc(var(--width) + var(--space)));
+  width: var(--width);
+  height: var(--lineHeight);
+  text-align: left;
+}
+
+.single-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.block {
+  display: block;
+}
+.inline {
+  display: inline-block;
+}
+.flex-h {
+  -webkit-box-orient: horizontal;
+  flex-direction: row;
+}
+.flex-h,
+.flex-v {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-direction: normal;
+}
+.flex-v {
+  -webkit-box-orient: vertical;
+  flex-direction: column;
+}
+
+.right {
+  text-align: right;
+}
+.center {
+  text-align: center;
+}
+.flex-v.center {
+  align-self: center;
+}
+.flex-h .bottom {
+  align-self: flex-end;
+}
