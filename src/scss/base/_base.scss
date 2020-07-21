@@ -181,14 +181,6 @@ a:visited {
 }
 
 
-.grid {
-  display: grid;
-  grid-template-rows: min-content 1fr;
-  grid-column-gap: var(--columnGap);
-  grid-row-gap: var(--rowGap);
-
-}
-
 /* document */
 html {
   font-family: var(--sansFont), -system-ui, system-ui, sans-serif;
@@ -218,3 +210,4 @@ body {
     padding-bottom: calc(var(--lineHeight) * 2);
   }
 }
+
