@@ -14081,10 +14081,10 @@ $(".work-content").each(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/shady/Desktop/gridWebsite/src/js/main.js */"./src/js/main.js");
-__webpack_require__(/*! /Users/shady/Desktop/gridWebsite/src/js/swiper.min.js */"./src/js/swiper.min.js");
-__webpack_require__(/*! /Users/shady/Desktop/gridWebsite/src/js/main-type.js */"./src/js/main-type.js");
-module.exports = __webpack_require__(/*! /Users/shady/Desktop/gridWebsite/src/scss/main.scss */"./src/scss/main.scss");
+__webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/main.js */"./src/js/main.js");
+__webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/swiper.min.js */"./src/js/swiper.min.js");
+__webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/main-type.js */"./src/js/main-type.js");
+module.exports = __webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/scss/main.scss */"./src/scss/main.scss");
 
 
 /***/ })
