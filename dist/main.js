@@ -11024,7 +11024,13 @@ slider.oninput = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {var ua = navigator.userAgent;
+/* WEBPACK VAR INJECTION */(function($) {// Clicking the current language toggles the 'is-open' class 
+// on the 'lang' block:
+document.getElementById('lang-toggle').addEventListener('click', function (e) {
+  e.preventDefault();
+  $(this).parent().toggleClass('is-open');
+});
+var ua = navigator.userAgent;
 
 if (ua.indexOf("Chrome/") != -1) {
   document.documentElement.classList.add('chrome');

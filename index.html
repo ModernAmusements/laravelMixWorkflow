@@ -18,22 +18,35 @@
           <a href="" class="type-lg">Kontakt</a>
           <a href="" class="type-lg">Blog</a>
         </nav>
-        <div class="darkmode">
-          <svg viewBox="0 0 50 50">
-              <g id="sun-group">
-                  <path class="st0"
-                      d="M24.95,34.53c5.25,0,9.5-4.25,9.5-9.5s-4.25-9.5-9.5-9.5s-9.5,4.25-9.5,9.5S19.7,34.53,24.95,34.53z" />
-                  <line class="st0" x1="39.08" y1="25" x2="49.5" y2="25" />
-                  <line class="st0" x1="10.92" y1="25" x2="0.5" y2="25" />
-                  <line class="st0" x1="25" y1="39.08" x2="25" y2="49.5" />
-                  <line class="st0" x1="25" y1="10.92" x2="25" y2="0.5" />
-                  <line class="st0" x1="34.92" y1="14.14" x2="42.28" y2="6.78" />
-                  <line class="st0" x1="34.92" y1="35.86" x2="42.28" y2="43.23" />
-                  <line class="st0" x1="15.07" y1="14.14" x2="7.71" y2="6.78" />
-                  <line class="st0" x1="15.07" y1="35.86" x2="7.71" y2="43.23" />
-              </g>
-          </svg>
-        </div>
+        <div class="lang">
+          <a href="#" id="lang-toggle" class="lang__option lang__option--current">
+            en <span class="lang__chevron">›</span>
+          </a>
+          <ul class="lang__list">
+           <li>
+             <a href="#" class="lang__option">fr</a>
+           </li>
+           <li>
+             <a href="#" class="lang__option">es</a>
+           </li>
+         </ul>  
+      </div>
+        <div class="darkmodeToggle">
+        <svg viewBox="0 0 50 50">
+            <g id="sun-group">
+                <path class="st0"
+                    d="M24.95,34.53c5.25,0,9.5-4.25,9.5-9.5s-4.25-9.5-9.5-9.5s-9.5,4.25-9.5,9.5S19.7,34.53,24.95,34.53z" />
+                <line class="st0" x1="39.08" y1="25" x2="49.5" y2="25" />
+                <line class="st0" x1="10.92" y1="25" x2="0.5" y2="25" />
+                <line class="st0" x1="25" y1="39.08" x2="25" y2="49.5" />
+                <line class="st0" x1="25" y1="10.92" x2="25" y2="0.5" />
+                <line class="st0" x1="34.92" y1="14.14" x2="42.28" y2="6.78" />
+                <line class="st0" x1="34.92" y1="35.86" x2="42.28" y2="43.23" />
+                <line class="st0" x1="15.07" y1="14.14" x2="7.71" y2="6.78" />
+                <line class="st0" x1="15.07" y1="35.86" x2="7.71" y2="43.23" />
+            </g>
+        </svg>
+      </div>
         <!-- <p class="Invert">Inverted Colors:<span id="inverted-msg">Off</span></p> -->
       </header>
     <article>
@@ -202,6 +215,7 @@
       </div>
     </div>  -->
   </main>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
     <script type="text/javascript" src="/dist/main.js"></script>
   </body>
 </html>
