@@ -655,7 +655,14 @@ nav {
     border: solid 1px var(--foreground-color);
     min-width: 4rem;
     position: relative;
-    border-radius: 99em;
+    clip-path: ellipse(40% 33% at 50% 50%);
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background-color: black;
+    background-size: cover;
+    background-position: center center;
   }
   .lang__list,
   .lang__option {
@@ -669,6 +676,7 @@ nav {
   }
   .lang__option {
     padding: 1rem;
+    clip-path: ellipse(40% 25% at 50% 50%);
     
     // Hover/focus state for language options:
     &:hover,

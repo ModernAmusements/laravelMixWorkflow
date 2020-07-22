@@ -870,7 +870,15 @@ nav {
   border: solid 1px var(--foreground-color);
   min-width: 4rem;
   position: relative;
-  border-radius: 99em;
+  -webkit-clip-path: ellipse(40% 33% at 50% 50%);
+          clip-path: ellipse(40% 33% at 50% 50%);
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  background-color: black;
+  background-size: cover;
+  background-position: center center;
 }
 
 .js .lang__list,
@@ -886,6 +894,8 @@ nav {
 
 .js .lang__option {
   padding: 1rem;
+  -webkit-clip-path: ellipse(40% 25% at 50% 50%);
+          clip-path: ellipse(40% 25% at 50% 50%);
 }
 
 .js .lang__option:hover,
