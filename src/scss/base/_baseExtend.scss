@@ -543,7 +543,8 @@ a {
 
 a:not(.lang__option) {
   border: solid 1px var(--foreground-color);
-  min-width: 4rem;
+  min-width: 5rem;
+  max-width: 7rem;
   position: relative;
   border-radius: 99em;
   display: inline-block;
@@ -556,21 +557,10 @@ a:not(.lang__option):hover {
   border: 1px solid #FF4D00;
 }
 
-// a.type-lg,
-// h1 a {
-//     padding: 3px 15px 0px 15px;
-//     border: 2px solid var(--foreground-color) !important;
-// }
-
-
-header a {
-  transition: border-radius 300ms, padding 300ms;
-}
-
 
 header {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: 4fr repeat(7, 1fr);
   grid-template-rows: min-content 1fr;
   grid-column-gap: var(--columnGap);
   grid-row-gap: var(--rowGap);
@@ -585,6 +575,7 @@ header {
   padding-top: calc(var(--lineHeight) * 1);
   background: var(--background-color);
   z-index: 10;
+  align-items: baseline;
 }
 
 
@@ -599,7 +590,7 @@ header {
 
 
 .darkmodeToggle svg {
-  height: 1.5em;
+  max-height: 2.4rem;
 } 
 
 
@@ -607,35 +598,34 @@ span{
 line-height: normal;
 }
 
-
-nav {
-  grid-area: 1 / 4 / 1 / 7 ;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .home {
+  min-width: 7rem;
   grid-area: span 2;
 }
-
-.lang {
-  grid-area: 1 / 8 / 1 / 8 ;
-  display: inline-block;
-  text-align: left;
+nav {
+  grid-area: 1 / 2 / 1 / 7 ;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
-
 .darkmodeToggle {
-  grid-area: 1 / 9 / 1 / 9 ;
+  align-self: center;
+  grid-area: 1 / 7 / 1 / 8 ;
 }
+.langToggle {
+  min-width: 12rem;
+  grid-area: 1 / 8 / 1 / 9 ;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 
 
 // Without Javascript, the toggle is just a line of inline links:
 .lang {
   display: inline-block;
-  text-align: left;
+  text-align: center;
   a {
-    color: black;
     text-decoration: none;
     text-transform: uppercase;
   }
@@ -654,15 +644,10 @@ nav {
   .lang {
     border: solid 1px var(--foreground-color);
     min-width: 4rem;
+    max-width: 6rem;
     position: relative;
-    clip-path: ellipse(40% 33% at 50% 50%);
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    background-color: black;
-    background-size: cover;
-    background-position: center center;
+    border-radius: 50%;
+
   }
   .lang__list,
   .lang__option {
@@ -675,14 +660,13 @@ nav {
     // transition: transform 0.2s;
   }
   .lang__option {
-    padding: 1rem;
-    clip-path: ellipse(40% 25% at 50% 50%);
+    padding: 0.5rem;
     
     // Hover/focus state for language options:
     &:hover,
     &:focus {
       background-color: white;
-      border-radius: 99em;
+      border-radius: 50%;
     }
   }
   .lang__list {
