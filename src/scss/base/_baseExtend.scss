@@ -240,7 +240,7 @@ h1.xlarge,
 .h1.xlarge {
   --h1-size: 5.5rem;
   line-height: calc(var(--lineHeight) * 4);
-  font-weight: 740;
+  font-weight: 500;
 }
 
 h1.xxlarge,
@@ -552,32 +552,33 @@ a:not(.lang__option) {
   padding: 0.5rem;
 }
 
-a:not(.lang__option):hover {
-  color: #FF4D00;
-  border: 1px solid #FF4D00;
+a:hover {
+  color: var(--background-color);
+  background-color: var(--foreground-color);
+  border: 1px solid var(--foreground-color);
 }
 
-
-header {
-  display: grid;
-  grid-template-columns: 4fr repeat(7, 1fr);
-  grid-template-rows: min-content 1fr;
-  grid-column-gap: var(--columnGap);
-  grid-row-gap: var(--rowGap);
-  align-items: center;
+a:not(.lang__option):active {
+  color: var(--background-color);
+  background-color: var(--foreground-color);
+  border: 1px solid var(--foreground-color);
 }
-
 
 header {
   position: sticky;
   top: 0;
   left: 0;
+  display: grid;
+  grid-template-columns: 4fr repeat(7, 1fr);
+  grid-template-rows: min-content 1fr;
+  grid-column-gap: var(--columnGap);
+  grid-row-gap: var(--rowGap);
+  align-items: baseline;
   padding-top: calc(var(--lineHeight) * 1);
+  border-bottom: 1px solid var(--foreground-color);
   background: var(--background-color);
   z-index: 10;
-  align-items: baseline;
 }
-
 
 
 #sun-group .st0 {
@@ -588,16 +589,13 @@ header {
   stroke-width: 2px;
 }
 
-
 .darkmodeToggle svg {
   max-height: 2.4rem;
 } 
 
-
 span{
 line-height: normal;
 }
-
 .home {
   min-width: 7rem;
   grid-area: span 2;
@@ -619,6 +617,44 @@ nav {
   justify-content: space-evenly;
 }
 
+.pageContent {
+  padding-top: calc(var(--lineHeight) * 1);
+  display: grid;
+  grid-template-columns: 4fr repeat(7, 1fr);
+  grid-template-rows: min-content 1fr;
+  grid-column-gap: var(--columnGap);
+  grid-row-gap: var(--rowGap);
+}
+
+.homeText {
+  --h1-size: 7vw;
+  line-height: 6vw;
+  font-weight: 500;
+}
+
+.homeTextSmall {
+  --h1-size: 5vw;
+  line-height: 5vw;
+  font-weight: 500;
+}
+
+
+.homeSvg{
+  grid-area: 1 / 1 / 8 / 9 ;
+}
+
+.credentialsName {
+  grid-area: 1 / 1 / 1 / 6 ;
+}
+
+.credentialsTime {
+  grid-area: 7 / 1 / 7 / 2 ;
+}
+
+.credentialsDate {
+  grid-area: 7 / 5 / 7 / 8 ;
+}
+
 
 
 // Without Javascript, the toggle is just a line of inline links:
@@ -630,15 +666,6 @@ nav {
     text-transform: uppercase;
   }
 }
-.lang__list,
-.lang__option {
-  margin:  0;
-  padding: 0;
-  display: inline;
-}
-.lang__chevron {
-  display: none;
-}
 // With Javascript, it becomes a pseudo select dropdown:
 .js {
   .lang {
@@ -649,42 +676,19 @@ nav {
     border-radius: 50%;
 
   }
-  .lang__list,
-  .lang__option {
+  .langOption {
     display: block;
-  }
-  .lang__chevron {
-    display: inline-block;
-    float: right;
-    transform: rotate(90deg);
-    // transition: transform 0.2s;
-  }
-  .lang__option {
     padding: 0.5rem;
-    
+  }
+
+  .langOption {
+    padding: 0.5rem;
     // Hover/focus state for language options:
     &:hover,
     &:focus {
-      background-color: white;
       border-radius: 50%;
     }
   }
-  .lang__list {
-    display: none;
-    list-style-type: none;
-  }
-  .is-open {
-    border-bottom: none;
-    .lang__list {
-      border: solid 1px;
-      border-top: none;
-      display: block;
-      position: absolute;
-      left: -1px;
-      width: 100%;
-    }
-    .lang__chevron {
-      transform: rotate(270deg);
-    }
-  }
+
+  
 }
