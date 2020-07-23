@@ -26,6 +26,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "dependencies": {
+    "input-range-scss": "^1.5.2",
     "jquery": "^3.5.1"
   }
 }

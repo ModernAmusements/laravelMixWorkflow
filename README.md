@@ -39,3 +39,10 @@ node_modules/.bin/webpack --config=node_modules/laravel-mix/setup/webpack.config
 # Worlflow 1.
 npm install for nodeModules
 refresh file view in vscode
+
+
+Sharing Sites Via Ngrok
+To share a site, navigate to the site's directory in your terminal and run the valet share command. A publicly accessible URL will be inserted into your clipboard and is ready to paste directly into your browser or share with your team.
+
+To stop sharing your site, hit Control + C to cancel the process.
+
