@@ -1104,30 +1104,26 @@ input[type=range]::-webkit-slider-thumb:active {
 }
 
 @media (min-width: 320px) and (max-width: 1025px) {
-  body {
-    padding: var(--lineHeight);
-    padding-bottom: calc(var(--lineHeight) * 2);
+  header {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: -webkit-min-content 1fr;
-    grid-template-rows: min-content 1fr;
-    grid-column-gap: var(--columnGap);
-    grid-row-gap: var(--rowGap);
   }
 
-  .controlsPage {
-    grid-area: 9/1/9/9;
+  .langToggle {
+    display: none;
   }
-}
 
-@media (min-width: 320px) and (max-width: 812px) {
   nav {
     display: none !important;
+  }
+
+  .darkmodeToggle {
+    grid-area: 1/4/1/4;
   }
 
   .mobile-display {
     align-self: center;
     display: block;
-    grid-area: 1/6/1/6;
+    grid-area: 1/3/1/3;
   }
 
   .st0burger {
@@ -1144,7 +1140,7 @@ input[type=range]::-webkit-slider-thumb:active {
     display: none;
     justify-content: space-between;
     padding-bottom: calc(var(--lineHeight) * 0.5);
-    grid-area: 2/1/2/9;
+    grid-area: 2/1/2/5;
   }
 
   #menu-mobile a {
@@ -1158,6 +1154,7 @@ input[type=range]::-webkit-slider-thumb:active {
   }
 
   #burger svg {
+    max-height: 2.4rem;
     cursor: pointer;
   }
 
