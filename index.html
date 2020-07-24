@@ -14,20 +14,35 @@
   <main>
     <header>
       <a href="" class="home">Home</a>
-      <nav>
+      <nav class="desktop">
         <a href="">Work</a>
         <a href="">About</a>
         <a href="">Kontakt</a>
         <a href="">Blog</a>
       </nav>
+         <!--Mobile menu button-->
+      <span id="burger" class="mobile-display">
+      <svg viewBox="0 0 50 50">
+        <g>
+          <line class="st0burger stroke-open" x1="49.5" y1="25" x2="0.5" y2="25" />
+          <line class="st0burger stroke-open" x1="0.5" y1="25" x2="49.5" y2="25" />
+        </g>
+        <line class="st0burger stroke-close" x1="0.5" y1="8.5" x2="49.5" y2="8.5" />
+        <line class="st0burger stroke-close" x1="0.5" y1="41.5" x2="49.5" y2="41.5" />
+      </svg>
+    </span>
+    <div id="menu-mobile">
+      <a href="">Work</a>
+      <a href="">About</a>
+      <a href="">Kontakt</a>
+      <a href="">Blog</a>
+    </div>
       <div class="langToggle">
-        <a href="#" class="lang langOption">
+        <a href="#" class="lang">
           DE
-          <!-- <span class="lang__chevron">›</span>  -->
         </a>
-        <a href="#" class="lang langOption">
+        <a href="#" class="lang">
           EN
-          <!--<span class="lang__chevron">›</span> -->
         </a>
       </div>
       <div class="darkmodeToggle">
@@ -46,9 +61,7 @@
           </g>
         </svg>
       </div>
-      <!-- <p class="Invert">Inverted Colors:<span id="inverted-msg">Off</span></p> -->
     </header>
-
     <article class="pageContent">
       <section class="homeSvg">
         <svg viewBox="0 0 1340 687" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,174 +108,13 @@
       <footer>
         <h3>Do You NEED A Visual Translator for you Project?</h3>
         <svg width="402" height="42" viewBox="0 0 402 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M397 23.5002H0V18.5002H397V23.5002Z" fill="black"/>
-          <path d="M398.506 17.6775L401.335 20.5059L380.828 41.012L378 38.1836L398.506 17.6775Z" fill="black"/>
-          <path d="M401.335 20.5059L398.506 23.3345L378 2.82843L380.828 0L401.335 20.5059Z" fill="black"/>
-          </svg>
-          <a href="">HIT ME UP</a>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M397 23.5002H0V18.5002H397V23.5002Z" fill="black" />
+          <path d="M398.506 17.6775L401.335 20.5059L380.828 41.012L378 38.1836L398.506 17.6775Z" fill="black" />
+          <path d="M401.335 20.5059L398.506 23.3345L378 2.82843L380.828 0L401.335 20.5059Z" fill="black" />
+        </svg>
+        <a href="">HIT ME UP</a>
       </footer>
     </article>
-    <!-- <div class="work-content">
-        <div class="slider">
-          <img src="content/img/20181114_WHYT018.jpg" />
-          <img src="content/img/20181114_WHYT0182.jpg" />
-        </div>
-        <div class="text__count"></div>
-      </div>
-      <hr />
-    </div>
-    <div class="content">
-      <div class="work-headline">
-        <h2>Post Human Typeface</h2>
-      </div>
-      <div class="typo-text">
-        <p>
-          12" EP on Whities Recs.
-          <br />
-          WHYT018
-          <br />
-          <br />
-          Art direction: Alex McCullough
-          <br />
-          Graphic Design: Jacob Wise & Alex McCullough
-          <br />
-          <br />
-          Available on whiti.es
-          <br />
-          <br />
-          2018
-        </p>
-        <br />
-      </div>
-
-      <div class="type-viewer">
-        <div class="" id="singleFile">
-          <input
-            type="text"
-            value="trialSegment"
-            id="controls-result"
-            spellcheck="false"
-            class="input"
-          />
-        </div>
-      </div>
-
-      <div
-        class="controls noWhiteSpace"
-        id="singleFile"
-        style="padding-bottom: 20px;"
-      >
-        <ul class="central-column">
-          <li id="font-size">
-            <div class="ccs-row">
-              <div class="css d-none d-md-inline">
-                <span class="property">[Font-Size]</span>:
-                <span id="fontSizeResult" contenteditable="true">12vw</span
-                ><span class="hidden--sm">;</span>
-              </div>
-              <div class="css d-md-none">
-                <span class="property">[size]</span>
-                <span id="fontSizeResultSm" contenteditable="true">32vw</span
-                ><span class="hidden--sm">;</span>
-              </div>
-              <div class="inputs">
-                <input
-                  id="fontSizeSlider"
-                  min="0.5"
-                  max="40"
-                  step="0.01"
-                  value="16"
-                  type="range"
-                />
-              </div>
-            </div>
-          </li>
-          <li id="font-weight">
-            <div class="ccs-row">
-              <span class="css">
-                <span class="css d-inline-block"
-                  ><span class="custom-prop hidden--sm">--wght</span
-                  ><span class="hidden--sm">: </span>"<span class="string"
-                    >wght</span
-                  >"
-                  <span id="wghtResult" class="result" contenteditable="true"
-                    >800</span
-                  ><span class="hidden--sm">;</span></span
-                >
-              </span>
-              <span class="inputs"
-                ><input
-                  id="wghtSlider"
-                  min="300"
-                  max="1000"
-                  value="800"
-                  type="range"
-              /></span>
-            </div>
-          </li>
-          <li id="cust-slnt">
-            <div class="ccs-row">
-              <span class="css"
-                ><span class="custom-prop hidden--sm">--slnt</span
-                ><span class="hidden--sm">: </span>"<span class="string"
-                  >slnt</span
-                >"
-                <span id="slntResult" class="result" contenteditable="true"
-                  >0</span
-                ><span class="hidden--sm">;</span></span
-              >
-              <span class="inputs"
-                ><input
-                  id="slntSlider"
-                  min="-15"
-                  max="0"
-                  step=".1"
-                  value="0"
-                  type="range"
-              /></span>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <hr />
-    <div class="content">
-      <div class="work-headline">
-        <h2>Paris is Melting</h2>
-      </div>
-      <div class="work-text">
-        <p>
-          12" EP on Whities Recs.
-          <br />
-          WHYT018
-          <br />
-          <br />
-          Art direction: Alex McCullough
-          <br />
-          Graphic Design: Jacob Wise & Alex McCullough
-          <br />
-          <br />
-          Available on whiti.es
-          <br />
-          <br />
-          2018
-        </p>
-      </div>
-      <div class="work-content">
-        <div class="slider">
-          <img src="content/img/20181114_WHYT018.jpg" />
-          <img src="content/img/20181114_WHYT0182.jpg" />
-        </div>
-
-        <div class="text__count"></div>
-      </div>
-      <hr />
-    </div>
-    <div class="content">
-      <div class="headline">
-        <p>Jacob Jan Wise© 2020 All Rights Reserved</p>
-      </div>
-    </div>  -->
   </main>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script>
   <script type="text/javascript" src="/dist/main.js"></script>

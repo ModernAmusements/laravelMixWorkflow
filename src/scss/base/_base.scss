@@ -204,10 +204,10 @@ body {
   
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-    padding: var(--lineHeight);
-    padding-bottom: calc(var(--lineHeight) * 2);
-  }
-}
+// @media only screen and (max-width: 600px) {
+//   body {
+//     padding: var(--lineHeight);
+//     padding-bottom: calc(var(--lineHeight) * 2);
+//   }
+// }
 

@@ -204,13 +204,6 @@ body {
   padding-top: var(--lineHeight);
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-    padding: var(--lineHeight);
-    padding-bottom: calc(var(--lineHeight) * 2);
-  }
-}
-
 /* block */
 
 address,
@@ -560,15 +553,12 @@ img:last-child {
   margin-top: var(--baseline);
   margin-bottom: var(--baseline);
 }
-
 img:only-child {
   margin: 0;
 }
-
 * + img {
   margin-top: calc(var(--baseline) * -1);
 }
-
 img.fill,
 img.cover {
   -o-object-fit: cover;
@@ -828,7 +818,7 @@ span {
 
 .home {
   min-width: 7rem;
-  grid-area: span 2;
+  grid-area: 1/1/1/1;
 }
 
 nav {
@@ -894,7 +884,7 @@ nav {
 }
 
 .controlsPage {
-  grid-area: 9/1/9/5;
+  grid-area: 9/1/9/6;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -934,17 +924,12 @@ footer h3 {
   border-radius: 50%;
 }
 
-.js .langOption {
-  display: block;
+.js .lang {
   padding: 0.5rem;
 }
 
-.js .langOption {
-  padding: 0.5rem;
-}
-
-.js .langOption:hover,
-.js .langOption:focus {
+.js .lang:hover,
+.js .lang:focus {
   border-radius: 50%;
 }
 
@@ -1000,8 +985,6 @@ input:checked + .slider:before {
   background-color: var(--background-color);
 }
 
-/* Rounded sliders */
-
 .slider.round {
   border-radius: 34px;
 }
@@ -1010,17 +993,10 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-/* Range */
-
-/* Range Browser Reset */
-
 input[type=range] {
   -webkit-appearance: none;
-  /* Hides the slider so that custom slider can be made */
   width: 100%;
-  /* Specific width is required for Firefox. */
   background: transparent;
-  /* Otherwise white in Chrome */
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -1029,24 +1005,21 @@ input[type=range]::-webkit-slider-thumb {
 
 input[type=range]:focus {
   outline: none;
-  /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
 }
 
 input[type=range]::-ms-track {
   width: 100%;
   cursor: pointer;
-  /* Hides the slider so custom styles can be added */
   background: transparent;
   border-color: transparent;
   color: transparent;
 }
 
-/* Range Browser Style */
-
 input[type=range] {
   height: 1em;
   -webkit-appearance: none;
   width: 100%;
+  min-width: 18rem;
 }
 
 input[type=range]:focus {
@@ -1124,16 +1097,91 @@ input[type=range]::-webkit-slider-thumb:active {
   background: var(--foreground-color);
 }
 
-.desktop input[type=range]::-ms-thumb::hover {
-  background: var(--foreground-color);
+.hide,
+.mobile-display,
+.small-mobile-display {
+  display: none;
 }
 
-.desktop input[type=range]::-moz-range-thumb:hover {
-  background: var(--foreground-color);
+@media (min-width: 320px) and (max-width: 1025px) {
+  body {
+    padding: var(--lineHeight);
+    padding-bottom: calc(var(--lineHeight) * 2);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: -webkit-min-content 1fr;
+    grid-template-rows: min-content 1fr;
+    grid-column-gap: var(--columnGap);
+    grid-row-gap: var(--rowGap);
+  }
+
+  .controlsPage {
+    grid-area: 9/1/9/9;
+  }
 }
 
-.desktop input[type=range]::-webkit-slider-thumb:hover {
-  background: var(--foreground-color);
+@media (min-width: 320px) and (max-width: 812px) {
+  nav {
+    display: none !important;
+  }
+
+  .mobile-display {
+    align-self: center;
+    display: block;
+    grid-area: 1/6/1/6;
+  }
+
+  .st0burger {
+    fill: none;
+    stroke: var(--foreground-color);
+    stroke-linecap: round;
+    stroke-width: 2px;
+    transform: rotate(0);
+  }
+
+  /*Menu Mobile*/
+
+  #menu-mobile {
+    display: none;
+    justify-content: space-between;
+    padding-bottom: calc(var(--lineHeight) * 0.5);
+    grid-area: 2/1/2/9;
+  }
+
+  #menu-mobile a {
+    border-radius: 4px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .desktop #menu-mobile a:hover {
+    background: #ffffef;
+  }
+
+  #burger svg {
+    cursor: pointer;
+  }
+
+  #burger.open svg .st0burger {
+    transition: transform 0.1s linear;
+  }
+
+  #burger.open svg .stroke-close {
+    display: none;
+  }
+
+  #burger svg .stroke-open:first-child {
+    opacity: 0;
+  }
+
+  #burger.open svg .stroke-open:first-child {
+    opacity: 1;
+    transform: rotate(45deg);
+  }
+
+  #burger.open svg .stroke-open {
+    transform: rotate(-45deg);
+    transform-origin: center;
+  }
 }
 
 .slider__next,

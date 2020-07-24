@@ -10970,6 +10970,269 @@ return jQuery;
 
 /***/ }),
 
+/***/ "./node_modules/webpack/buildin/module.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/module.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if (!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if (!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+
+/***/ "./src/js/current-device.min.js":
+/*!**************************************!*\
+  !*** ./src/js/current-device.min.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(module, $) {var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+/*
+ * current-device v0.9.1 - https://github.com/matthewhudson/current-device
+ * MIT Licensed
+ */
+!function (n, o) {
+  "object" == ( false ? undefined : _typeof(exports)) && "object" == ( false ? undefined : _typeof(module)) ? module.exports = o() :  true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (o),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : undefined;
+}(window, function () {
+  return function (n) {
+    var o = {};
+
+    function e(t) {
+      if (o[t]) return o[t].exports;
+      var r = o[t] = {
+        i: t,
+        l: !1,
+        exports: {}
+      };
+      return n[t].call(r.exports, r, r.exports, e), r.l = !0, r.exports;
+    }
+
+    return e.m = n, e.c = o, e.d = function (n, o, t) {
+      e.o(n, o) || Object.defineProperty(n, o, {
+        enumerable: !0,
+        get: t
+      });
+    }, e.r = function (n) {
+      "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(n, Symbol.toStringTag, {
+        value: "Module"
+      }), Object.defineProperty(n, "__esModule", {
+        value: !0
+      });
+    }, e.t = function (n, o) {
+      if (1 & o && (n = e(n)), 8 & o) return n;
+      if (4 & o && "object" == _typeof(n) && n && n.__esModule) return n;
+      var t = Object.create(null);
+      if (e.r(t), Object.defineProperty(t, "default", {
+        enumerable: !0,
+        value: n
+      }), 2 & o && "string" != typeof n) for (var r in n) {
+        e.d(t, r, function (o) {
+          return n[o];
+        }.bind(null, r));
+      }
+      return t;
+    }, e.n = function (n) {
+      var o = n && n.__esModule ? function () {
+        return n["default"];
+      } : function () {
+        return n;
+      };
+      return e.d(o, "a", o), o;
+    }, e.o = function (n, o) {
+      return Object.prototype.hasOwnProperty.call(n, o);
+    }, e.p = "", e(e.s = 0);
+  }([function (n, o, e) {
+    n.exports = e(1);
+  }, function (n, o, e) {
+    "use strict";
+
+    e.r(o);
+    var t = "function" == typeof Symbol && "symbol" == _typeof(Symbol.iterator) ? function (n) {
+      return _typeof(n);
+    } : function (n) {
+      return n && "function" == typeof Symbol && n.constructor === Symbol && n !== Symbol.prototype ? "symbol" : _typeof(n);
+    },
+        r = window.device,
+        i = {},
+        a = [];
+    window.device = i;
+    var c = window.document.documentElement,
+        d = window.navigator.userAgent.toLowerCase(),
+        u = ["googletv", "viera", "smarttv", "internet.tv", "netcast", "nettv", "appletv", "boxee", "kylo", "roku", "dlnadoc", "pov_tv", "hbbtv", "ce-html"];
+
+    function l(n, o) {
+      return -1 !== n.indexOf(o);
+    }
+
+    function s(n) {
+      return l(d, n);
+    }
+
+    function f(n) {
+      return c.className.match(new RegExp(n, "i"));
+    }
+
+    function b(n) {
+      var o = null;
+      f(n) || (o = c.className.replace(/^\s+|\s+$/g, ""), c.className = o + " " + n);
+    }
+
+    function p(n) {
+      f(n) && (c.className = c.className.replace(" " + n, ""));
+    }
+
+    function w() {
+      i.landscape() ? (p("portrait"), b("landscape"), y("landscape")) : (p("landscape"), b("portrait"), y("portrait")), v();
+    }
+
+    function y(n) {
+      for (var o in a) {
+        a[o](n);
+      }
+    }
+
+    i.macos = function () {
+      return s("mac");
+    }, i.ios = function () {
+      return i.iphone() || i.ipod() || i.ipad();
+    }, i.iphone = function () {
+      return !i.windows() && s("iphone");
+    }, i.ipod = function () {
+      return s("ipod");
+    }, i.ipad = function () {
+      var n = "MacIntel" === navigator.platform && navigator.maxTouchPoints > 1;
+      return s("ipad") || n;
+    }, i.android = function () {
+      return !i.windows() && s("android");
+    }, i.androidPhone = function () {
+      return i.android() && s("mobile");
+    }, i.androidTablet = function () {
+      return i.android() && !s("mobile");
+    }, i.blackberry = function () {
+      return s("blackberry") || s("bb10") || s("rim");
+    }, i.blackberryPhone = function () {
+      return i.blackberry() && !s("tablet");
+    }, i.blackberryTablet = function () {
+      return i.blackberry() && s("tablet");
+    }, i.windows = function () {
+      return s("windows");
+    }, i.windowsPhone = function () {
+      return i.windows() && s("phone");
+    }, i.windowsTablet = function () {
+      return i.windows() && s("touch") && !i.windowsPhone();
+    }, i.fxos = function () {
+      return (s("(mobile") || s("(tablet")) && s(" rv:");
+    }, i.fxosPhone = function () {
+      return i.fxos() && s("mobile");
+    }, i.fxosTablet = function () {
+      return i.fxos() && s("tablet");
+    }, i.meego = function () {
+      return s("meego");
+    }, i.cordova = function () {
+      return window.cordova && "file:" === location.protocol;
+    }, i.nodeWebkit = function () {
+      return "object" === t(window.process);
+    }, i.mobile = function () {
+      return i.androidPhone() || i.iphone() || i.ipod() || i.windowsPhone() || i.blackberryPhone() || i.fxosPhone() || i.meego();
+    }, i.tablet = function () {
+      return i.ipad() || i.androidTablet() || i.blackberryTablet() || i.windowsTablet() || i.fxosTablet();
+    }, i.desktop = function () {
+      return !i.tablet() && !i.mobile();
+    }, i.television = function () {
+      for (var n = 0; n < u.length;) {
+        if (s(u[n])) return !0;
+        n++;
+      }
+
+      return !1;
+    }, i.portrait = function () {
+      return screen.orientation && Object.prototype.hasOwnProperty.call(window, "onorientationchange") ? l(screen.orientation.type, "portrait") : i.ios() && Object.prototype.hasOwnProperty.call(window, "orientation") ? 90 !== Math.abs(window.orientation) : window.innerHeight / window.innerWidth > 1;
+    }, i.landscape = function () {
+      return screen.orientation && Object.prototype.hasOwnProperty.call(window, "onorientationchange") ? l(screen.orientation.type, "landscape") : i.ios() && Object.prototype.hasOwnProperty.call(window, "orientation") ? 90 === Math.abs(window.orientation) : window.innerHeight / window.innerWidth < 1;
+    }, i.noConflict = function () {
+      return window.device = r, this;
+    }, i.ios() ? i.ipad() ? b("ios ipad tablet") : i.iphone() ? b("ios iphone mobile") : i.ipod() && b("ios ipod mobile") : i.macos() ? b("macos desktop") : i.android() ? i.androidTablet() ? b("android tablet") : b("android mobile") : i.blackberry() ? i.blackberryTablet() ? b("blackberry tablet") : b("blackberry mobile") : i.windows() ? i.windowsTablet() ? b("windows tablet") : i.windowsPhone() ? b("windows mobile") : b("windows desktop") : i.fxos() ? i.fxosTablet() ? b("fxos tablet") : b("fxos mobile") : i.meego() ? b("meego mobile") : i.nodeWebkit() ? b("node-webkit") : i.television() ? b("television") : i.desktop() && b("desktop"), i.cordova() && b("cordova"), i.onChangeOrientation = function (n) {
+      "function" == typeof n && a.push(n);
+    };
+    var m = "resize";
+
+    function h(n) {
+      for (var o = 0; o < n.length; o++) {
+        if (i[n[o]]()) return n[o];
+      }
+
+      return "unknown";
+    }
+
+    function v() {
+      i.orientation = h(["portrait", "landscape"]);
+    }
+
+    Object.prototype.hasOwnProperty.call(window, "onorientationchange") && (m = "orientationchange"), window.addEventListener ? window.addEventListener(m, w, !1) : window.attachEvent ? window.attachEvent(m, w) : window[m] = w, w(), i.type = h(["mobile", "tablet", "desktop"]), i.os = h(["ios", "iphone", "ipad", "ipod", "android", "blackberry", "macos", "windows", "fxos", "meego", "television"]), v(), o["default"] = i;
+  }])["default"];
+});
+/*
+ * jQBrowser v0.2: http://davecardwell.co.uk/javascript/jquery/plugins/jquery-browserdetect/
+ */
+
+eval(function (r, e, s, a, _o, i) {
+  for (_o = function o(r) {
+    return (r < 77 ? "" : _o(r / 77)) + String.fromCharCode(r % 77 + 161);
+  }; s--;) {
+    a[s] && (r = r.replace(new RegExp(_o(s), "g"), a[s]));
+  }
+
+  return r;
+}("Ö ¡(){® Ø={'¥':¡(){¢ £.¥},'©':{'±':¡(){¢ £.©.±},'¯':¡(){¢ £.©.¯}},'¬':¡(){¢ £.¬},'¶':¡(){¢ £.¶},'º':¡(){¢ £.º},'Á':¡(){¢ £.Á},'À':¡(){¢ £.À},'½':¡(){¢ £.½},'¾':¡(){¢ £.¾},'¼':¡(){¢ £.¼},'·':¡(){¢ £.·},'Â':¡(){¢ £.Â},'³':¡(){¢ £.³},'Ä':¡(){¢ £.Ä},'Ã':¡(){¢ £.Ã},'Å':¡(){¢ £.Å},'¸':¡(){¢ £.¸}};$.¥=Ø;® £={'¥':'¿','©':{'±':²,'¯':'¿'},'¬':'¿','¶':§,'º':§,'Á':§,'À':§,'½':§,'¾':§,'¼':§,'·':§,'Â':§,'³':§,'Ä':§,'Ã':§,'Å':§,'¸':§};Î(® i=0,«=».ì,°=».í,¦=[{'¤':'Ý','¥':¡(){¢/Ù/.¨(°)}},{'¤':'Ú','¥':¡(){¢ Û.³!=²}},{'¤':'È','¥':¡(){¢/È/.¨(°)}},{'¤':'Ü','¥':¡(){¢/Þ/.¨(°)}},{'ª':'¶','¤':'ß Ñ','¥':¡(){¢/à á â/.¨(«)},'©':¡(){¢ «.¹(/ã(\\d+(?:\\.\\d+)+)/)}},{'¤':'Ì','¥':¡(){¢/Ì/.¨(«)}},{'¤':'Í','¥':¡(){¢/Í/.¨(°)}},{'¤':'Ï','¥':¡(){¢/Ï/.¨(«)}},{'¤':'Ð','¥':¡(){¢/Ð/.¨(«)}},{'ª':'·','¤':'å Ñ','¥':¡(){¢/Ò/.¨(«)},'©':¡(){¢ «.¹(/Ò (\\d+(?:\\.\\d+)+(?:b\\d*)?)/)}},{'¤':'Ó','¥':¡(){¢/æ|Ó/.¨(«)},'©':¡(){¢ «.¹(/è:(\\d+(?:\\.\\d+)+)/)}}];i<¦.Ë;i++){µ(¦[i].¥()){® ª=¦[i].ª?¦[i].ª:¦[i].¤.Õ();£[ª]=É;£.¥=¦[i].¤;® ­;µ(¦[i].©!=²&&(­=¦[i].©())){£.©.¯=­[1];£.©.±=Ê(­[1])}ê{® Ç=Ö ë(¦[i].¤+'(?:\\\\s|\\\\/)(\\\\d+(?:\\\\.\\\\d+)+(?:(?:a|b)\\\\d*)?)');­=«.¹(Ç);µ(­!=²){£.©.¯=­[1];£.©.±=Ê(­[1])}}×}};Î(® i=0,´=».ä,¦=[{'ª':'¸','¤':'ç','¬':¡(){¢/é/.¨(´)}},{'¤':'Ô','¬':¡(){¢/Ô/.¨(´)}},{'¤':'Æ','¬':¡(){¢/Æ/.¨(´)}}];i<¦.Ë;i++){µ(¦[i].¬()){® ª=¦[i].ª?¦[i].ª:¦[i].¤.Õ();£[ª]=É;£.¬=¦[i].¤;×}}}();", 0, 77, "function|return|Private|name|browser|data|false|test|version|identifier|ua|OS|result|var|string|ve|number|undefined|opera|pl|if|aol|msie|win|match|camino|navigator|mozilla|icab|konqueror|Unknown|flock|firefox|netscape|linux|safari|mac|Linux|re|iCab|true|parseFloat|length|Flock|Camino|for|Firefox|Netscape|Explorer|MSIE|Mozilla|Mac|toLowerCase|new|break|Public|Apple|Opera|window|Konqueror|Safari|KDE|AOL|America|Online|Browser|rev|platform|Internet|Gecko|Windows|rv|Win|else|RegExp|userAgent|vendor".split("|")));
+var aol = $.browser.aol(),
+    camino = $.browser.camino(),
+    firefox = $.browser.firefox(),
+    flock = $.browser.flock(),
+    icab = $.browser.icab(),
+    konqueror = $.browser.konqueror(),
+    mozilla = $.browser.mozilla(),
+    msie = $.browser.msie(),
+    netscape = $.browser.netscape(),
+    opera = $.browser.opera(),
+    safari = $.browser.safari(),
+    userbrowser = $.browser.browser(),
+    linux = $.browser.linux(),
+    mac = $.browser.mac(),
+    win = $.browser.win(),
+    userversion = $.browser.version.number();
+1 == mac ? $("html").addClass("mac") : 1 == linux ? $("html").addClass("linux") : 1 == win && $("html").addClass("windows"), "Safari" == userbrowser ? $("html").addClass("safari") : "Firefox" == userbrowser ? $("html").addClass("firefox") : "Camino" == userbrowser ? $("html").addClass("camino") : "AOL Explorer" == userbrowser ? $("html").addClass("aol") : "Flock" == userbrowser ? $("html").addClass("flock") : "iCab" == userbrowser ? $("html").addClass("icab") : "Konqueror" == userbrowser ? $("html").addClass("konqueror") : "Mozilla" == userbrowser ? $("html").addClass("mozilla") : "Netscape" == userbrowser ? $("html").addClass("netscape") : "Opera" == userbrowser ? $("html").addClass("opera") : "Internet Explorer" == userbrowser && $("html").addClass("ie"), $("html").addClass("" + userversion);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
 /***/ "./src/js/main-type.js":
 /*!*****************************!*\
   !*** ./src/js/main-type.js ***!
@@ -11024,17 +11287,38 @@ slider.oninput = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {// Clicking the current language toggles the 'is-open' class 
-// on the 'lang' block:
-document.getElementById('lang-toggle').addEventListener('click', function (e) {
-  e.preventDefault();
-  $(this).parent().toggleClass('is-open');
+/* WEBPACK VAR INJECTION */(function($) {$(document).ready(function () {
+  'use strict'; //loader
+
+  setTimeout(function () {
+    $('#loader').fadeOut();
+  }, 1000);
+  setTimeout(function () {
+    $('#loader').remove();
+  }, 2000); //Remove Splash on devices
+
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    /*GENERAL*/
+    $('#splash').remove();
+    $('#container').removeClass('blur');
+  } //Sun
+
+
+  $('#sun').click(function () {
+    $('body').toggleClass('sun-active');
+  });
+  $('#burger').click(function () {
+    $(this).toggleClass('open');
+    $('#menu-mobile').slideToggle('medium', function () {
+      if ($(this).is(':visible')) $(this).css('display', 'flex');
+    });
+  });
 });
 var ua = navigator.userAgent;
 
-if (ua.indexOf("Chrome/") != -1) {
+if (ua.indexOf('Chrome/') != -1) {
   document.documentElement.classList.add('chrome');
-} else if (ua.indexOf("Firefox/") != -1) {
+} else if (ua.indexOf('Firefox/') != -1) {
   document.documentElement.classList.add('firefox');
 }
 
@@ -11043,7 +11327,7 @@ var style = document.createElement('style');
 style.appendChild(document.createTextNode(css));
 document.head.appendChild(style);
 var link = document.createElement('link');
-link.rel = "stylesheet";
+link.rel = 'stylesheet';
 document.head.appendChild(link);
 var baselineBeacon = document.createElement('div');
 baselineBeacon.className = 'baselineBeacon';
@@ -11130,9 +11414,9 @@ function toggleSizeMode() {
 var pointerMoveLine = null;
 
 function togglePointerLine(on) {
-  document.removeEventListener("mousemove", movePointerLine);
-  document.removeEventListener("mousedown", pointerLineMouseDown);
-  document.removeEventListener("mouseup", pointerLineMouseUp);
+  document.removeEventListener('mousemove', movePointerLine);
+  document.removeEventListener('mousedown', pointerLineMouseDown);
+  document.removeEventListener('mouseup', pointerLineMouseUp);
 
   if (on) {
     if (!pointerMoveLine) {
@@ -11141,21 +11425,21 @@ function togglePointerLine(on) {
       document.body.appendChild(pointerMoveLine);
     }
 
-    document.addEventListener("mousemove", movePointerLine);
-    document.addEventListener("mousedown", pointerLineMouseDown);
-    document.addEventListener("mouseup", pointerLineMouseUp);
-    pointerMoveLine.classList.add("active");
+    document.addEventListener('mousemove', movePointerLine);
+    document.addEventListener('mousedown', pointerLineMouseDown);
+    document.addEventListener('mouseup', pointerLineMouseUp);
+    pointerMoveLine.classList.add('active');
   } else if (pointerMoveLine) {
-    pointerMoveLine.classList.remove("active");
+    pointerMoveLine.classList.remove('active');
   }
 }
 
 function pointerLineMouseDown() {
-  pointerMoveLine.classList.add("pressed");
+  pointerMoveLine.classList.add('pressed');
 }
 
 function pointerLineMouseUp() {
-  pointerMoveLine.classList.remove("pressed");
+  pointerMoveLine.classList.remove('pressed');
 }
 
 function movePointerLine(ev) {
@@ -11171,23 +11455,23 @@ bindTapableOption('size-mode', toggleSizeMode);
 
 function handleKeyPress(key) {
   switch (key) {
-    case "d":
-    case "D":
+    case 'd':
+    case 'D':
       toggleDebugMode();
       return true;
 
-    case "g":
-    case "G":
+    case 'g':
+    case 'G':
       toggleBaseGrid();
       return true;
 
-    case "i":
-    case "I":
+    case 'i':
+    case 'I':
       toggleInvertedMode();
       return true;
 
-    case "s":
-    case "S":
+    case 's':
+    case 'S':
       toggleSizeMode();
       return true;
   }
@@ -11221,10 +11505,10 @@ updateSizeModeLabel();
 updateComputedValueLabels();
 
 if ($(window).width() > 700) {
-  $(".load").click(function () {
-    $(".load").css("opacity", "0");
+  $('.load').click(function () {
+    $('.load').css('opacity', '0');
     setTimeout(function () {
-      $(".load").css("display", "none");
+      $('.load').css('display', 'none');
     }, 2000);
   });
 
@@ -11245,102 +11529,102 @@ if ($(window).width() > 700) {
     var xxx = Math.round(e.pageX / w * 400); // $(document.body).css('color','rgb('+rgb.join(',')+')');
     // $(document.body).css('-webkit-text-stroke','rgb('+rgb.join(',')+')');
 
-    $('#glyph').attr("style", "font-variation-settings: 'wght'" + xxx); // console.log(xxx);
+    $('#glyph').attr('style', "font-variation-settings: 'wght'" + xxx); // console.log(xxx);
   }).resize();
-  $(".load").click(function () {
-    $(".all").css("filter", "none");
+  $('.load').click(function () {
+    $('.all').css('filter', 'none');
   });
   $(document).on('input', '.slider2', function () {
     valeurdemonslider = $(this).val();
-    $(this).closest('.typo').find('.test').css("letter-spacing", valeurdemonslider + "px");
+    $(this).closest('.typo').find('.test').css('letter-spacing', valeurdemonslider + 'px');
   });
   $(document).on('input', '.slider1', function () {
     valeurdemonslider = $(this).val();
-    $(this).closest('.typo').find('.test').css("font-size", valeurdemonslider + "pt");
+    $(this).closest('.typo').find('.test').css('font-size', valeurdemonslider + 'pt');
   });
   var tourneornot = 0;
-  $(".bouton").click(function () {
+  $('.bouton').click(function () {
     if (tourneornot === 0) {
-      $(".yolo").css("display", "block");
-      $(".partie_typo").css("transform", "perspective(1000px) rotateY(-270deg)");
-      document.getElementById("about").innerHTML = "Typefaces";
+      $('.yolo').css('display', 'block');
+      $('.partie_typo').css('transform', 'perspective(1000px) rotateY(-270deg)');
+      document.getElementById('about').innerHTML = 'Typefaces';
       tourneornot = 1;
       mytimer2 = setTimeout(function () {
-        $(".partie_typo").css("opacity", "0");
+        $('.partie_typo').css('opacity', '0');
       }, 2000);
       clearTimeout(mytimer);
     } else {
-      $(".partie_typo").css("opacity", "1");
+      $('.partie_typo').css('opacity', '1');
       mytimer = setTimeout(function () {
-        $(".yolo").css("display", "none");
+        $('.yolo').css('display', 'none');
       }, 1500);
-      $(".partie_typo").css("transform", "perspective(0) rotateY(0)");
-      document.getElementById("about").innerHTML = "About";
+      $('.partie_typo').css('transform', 'perspective(0) rotateY(0)');
+      document.getElementById('about').innerHTML = 'About';
       tourneornot = 0;
       clearTimeout(mytimer2);
     }
   });
-  $(".home").click(function () {
+  $('.home').click(function () {
     if (tourneornot == 1) {
-      $(".partie_typo").css("transform", "perspective(0) rotateY(0)");
-      document.getElementById("about").innerHTML = "About";
+      $('.partie_typo').css('transform', 'perspective(0) rotateY(0)');
+      document.getElementById('about').innerHTML = 'About';
       tourneornot = 0;
     } else {}
   });
   $('#select').change(function () {
     location.href = $(this).val();
   });
-  $(".onglet").click(function () {
-    $(".onglet").removeClass("onglet_active");
-    $(".onglet").addClass("onglet_inactive");
-    $(this).removeClass("onglet_inactive");
-    $(this).addClass("onglet_active");
+  $('.onglet').click(function () {
+    $('.onglet').removeClass('onglet_active');
+    $('.onglet').addClass('onglet_inactive');
+    $(this).removeClass('onglet_inactive');
+    $(this).addClass('onglet_active');
   });
-  $(".third").click(function () {
-    $(".firstco").css("display", "none");
-    $(".secondco").css("display", "none");
-    $(".thirdco").css("display", "block");
+  $('.third').click(function () {
+    $('.firstco').css('display', 'none');
+    $('.secondco').css('display', 'none');
+    $('.thirdco').css('display', 'block');
   });
-  $(".second").click(function () {
-    $(".firstco").css("display", "none");
-    $(".secondco").css("display", "block");
-    $(".thirdco").css("display", "none");
+  $('.second').click(function () {
+    $('.firstco').css('display', 'none');
+    $('.secondco').css('display', 'block');
+    $('.thirdco').css('display', 'none');
   });
-  $(".first").click(function () {
-    $(".firstco").css("display", "block");
-    $(".secondco").css("display", "none");
-    $(".thirdco").css("display", "none");
+  $('.first').click(function () {
+    $('.firstco').css('display', 'block');
+    $('.secondco').css('display', 'none');
+    $('.thirdco').css('display', 'none');
   });
 } else {
   $(document).on('input', '.slider2', function () {
     valeurdemonslider = $(this).val();
-    $(this).closest('.typo').find('.test').css("letter-spacing", valeurdemonslider + "px");
+    $(this).closest('.typo').find('.test').css('letter-spacing', valeurdemonslider + 'px');
   });
   $(document).on('input', '.slider1', function () {
     valeurdemonslider = $(this).val();
-    $(this).closest('.typo').find('.test').css("font-size", valeurdemonslider + "pt");
+    $(this).closest('.typo').find('.test').css('font-size', valeurdemonslider + 'pt');
   });
   var tourneornot = 0;
-  $(".bouton").click(function () {
+  $('.bouton').click(function () {
     if (tourneornot === 0) {
-      $(".partie_typo").css("transform", "perspective(1000px) rotateY(-90deg)");
-      document.getElementById("about").innerHTML = "Typefaces";
+      $('.partie_typo').css('transform', 'perspective(1000px) rotateY(-90deg)');
+      document.getElementById('about').innerHTML = 'Typefaces';
       setTimeout(function () {
-        $(".yolo").css("opacity", "1");
+        $('.yolo').css('opacity', '1');
       }, 2000);
       tourneornot = 1;
     } else {
-      $(".partie_typo").css("transform", "perspective(0) rotateY(0)");
-      document.getElementById("about").innerHTML = "About";
-      $(".yolo").css("opacity", "0");
+      $('.partie_typo').css('transform', 'perspective(0) rotateY(0)');
+      document.getElementById('about').innerHTML = 'About';
+      $('.yolo').css('opacity', '0');
       tourneornot = 0;
     }
   });
-  $(".home").click(function () {
+  $('.home').click(function () {
     if (tourneornot == 1) {
-      $(".partie_typo").css("transform", "perspective(0) rotateY(0)");
-      document.getElementById("about").innerHTML = "About";
-      $(".yolo").css("opacity", "0");
+      $('.partie_typo').css('transform', 'perspective(0) rotateY(0)');
+      document.getElementById('about').innerHTML = 'About';
+      $('.yolo').css('opacity', '0');
       tourneornot = 0;
     } else {}
   });
@@ -14094,15 +14378,16 @@ $(".work-content").each(function () {
 /***/ }),
 
 /***/ 0:
-/*!*************************************************************************************************!*\
-  !*** multi ./src/js/main.js ./src/js/swiper.min.js ./src/js/main-type.js ./src/scss/index.scss ***!
-  \*************************************************************************************************/
+/*!*****************************************************************************************************************************!*\
+  !*** multi ./src/js/main.js ./src/js/swiper.min.js ./src/js/main-type.js ./src/js/current-device.min ./src/scss/index.scss ***!
+  \*****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/main.js */"./src/js/main.js");
 __webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/swiper.min.js */"./src/js/swiper.min.js");
 __webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/main-type.js */"./src/js/main-type.js");
+__webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/current-device.min */"./src/js/current-device.min.js");
 module.exports = __webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/scss/index.scss */"./src/scss/index.scss");
 
 
