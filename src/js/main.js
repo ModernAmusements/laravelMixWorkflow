@@ -20,9 +20,10 @@ $(document).ready(function() {
 
   $('#burger').click(function () {
     $(this).toggleClass('open')
-    $('#menu-mobile').slideToggle('medium', function () {
+    $('#mobile-nav').slideToggle('medium', function () {
       if ($(this).is(':visible'))
-          $(this).css('display', 'flex') 
+        $(this).css('display', 'block')
+        $('body').css('overflow', 'hidden')
     })
   })
 });

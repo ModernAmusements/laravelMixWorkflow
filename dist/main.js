@@ -11309,8 +11309,9 @@ slider.oninput = function () {
   });
   $('#burger').click(function () {
     $(this).toggleClass('open');
-    $('#menu-mobile').slideToggle('medium', function () {
-      if ($(this).is(':visible')) $(this).css('display', 'flex');
+    $('#mobile-nav').slideToggle('medium', function () {
+      if ($(this).is(':visible')) $(this).css('display', 'block');
+      $('body').css('overflow', 'hidden');
     });
   });
 });
