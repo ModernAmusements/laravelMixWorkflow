@@ -780,6 +780,25 @@ nav a,
   margin-left: 0.5em;
 }
 
+.langToggle {
+  justify-content: space-between;
+}
+
+.langToggle a {
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 50%;
+}
+
+.lang {
+  padding: 0.5rem;
+}
+
+.lang:hover,
+.lang:focus {
+  border-radius: 50%;
+}
+
 a:hover {
   color: var(--background-color);
   background-color: var(--foreground-color);
@@ -810,35 +829,23 @@ header {
   z-index: 10;
 }
 
-a.home {
+.home {
   grid-area: 1/1/1/1;
 }
 
-menu.desktop,
+.desktop,
 .langToggle {
   display: grid;
   grid-auto-flow: column;
   justify-self: end;
 }
 
-menu.desktop {
-  grid-area: 1/3/1/8;
-}
-
 .langToggle {
   grid-area: 1/8/1/9;
 }
 
-#sun-group .st0 {
-  fill: none;
-  stroke: var(--foreground-color);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 2px;
-}
-
-.darkmodeToggle svg {
-  max-height: 2.4rem;
+.desktop {
+  grid-area: 1/3/1/8;
 }
 
 span {
@@ -855,20 +862,18 @@ span {
   grid-row-gap: var(--rowGap);
 }
 
-.homeText {
+.displayText {
   --h1-size: 7vw;
   line-height: 6vw;
-  font-weight: 500;
-}
-
-.homeTextSmall {
-  --h1-size: 5vw;
-  line-height: 5vw;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .homeSvg {
-  grid-area: 1/1/8/9;
+  grid-area: 1/1/4/9;
+}
+
+.homeSvg svg {
+  stroke: 1px solid var(--foreground-color);
 }
 
 .credentialsName {
@@ -876,11 +881,12 @@ span {
 }
 
 .credentialsTime {
-  grid-area: 7/1/7/2;
+  grid-area: 3/1/3/4;
 }
 
 .credentialsDate {
-  grid-area: 7/5/7/8;
+  grid-area: 3/6/3/9;
+  white-space: nowrap;
 }
 
 .divider {
@@ -926,32 +932,6 @@ footer h3 {
 
 .controlsPage p {
   margin-bottom: 0;
-}
-
-.lang {
-  display: inline-block;
-  text-align: center;
-}
-
-.lang a {
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.js .lang {
-  border: solid 1px var(--foreground-color);
-  width: 4rem;
-  position: relative;
-  border-radius: 50%;
-}
-
-.js .lang {
-  padding: 0.5rem;
-}
-
-.js .lang:hover,
-.js .lang:focus {
-  border-radius: 50%;
 }
 
 .controls {
@@ -1125,6 +1105,12 @@ menu.mobile-display {
 }
 
 @media (min-width: 320px) and (max-width: 1025px) {
+  .displayText {
+    --h1-size: 6.5vw;
+    line-height: 6vw;
+    font-weight: 600;
+  }
+
   menu.desktop,
   .navLang {
     display: none;
@@ -1241,7 +1227,7 @@ menu.mobile-display {
     grid-area: 1/4/1/4;
   }
 
-  .js .lang {
+  .lang {
     width: 6rem !important;
   }
 
