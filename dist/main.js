@@ -11327,7 +11327,7 @@ function bindTapableOption(msgname, fn) {
 
 function updateInvertedLabel() {
   var on = document.documentElement.classList.contains('inverted');
-  setLabel('inverted-msg', on ? 'NNN' : 'FFF');
+  setLabel('inverted-msg', on ? 'NNNCorp™' : 'FFFCorp™');
 }
 
 function updateSizeModeLabel() {
