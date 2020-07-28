@@ -1,34 +1,12 @@
-$(document).ready(function() {
-  'use strict';
-  //loader
-  setTimeout(function() {
-    $('#loader').fadeOut();
-  }, 1000);
-  setTimeout(function() {
-    $('#loader').remove();
-  }, 2000);
-  //Remove Splash on devices
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-    /*GENERAL*/
-    $('#splash').remove();
-    $('#container').removeClass('blur');
-  }
-  //Sun
-  $('#sun').click(function() {
-    $('body').toggleClass('sun-active');
+$('#burger').click(function() {
+  $(this).toggleClass('open');
+  $('#mobile-nav').slideToggle('medium', function() {
+    if ($(this).is(':visible')) {
+      $(this).css('display', 'block');
+    }
+    $('body').css('overflow', 'hidden');
   });
-
-  $('#burger').click(function () {
-    $(this).toggleClass('open')
-    $('#mobile-nav').slideToggle('medium', function () {
-      if ($(this).is(':visible'))
-        $(this).css('display', 'block')
-        $('body').css('overflow', 'hidden')
-    })
-  })
 });
-
-
 
 let ua = navigator.userAgent;
 if (ua.indexOf('Chrome/') != -1) {
@@ -37,7 +15,7 @@ if (ua.indexOf('Chrome/') != -1) {
   document.documentElement.classList.add('firefox');
 }
 
-let css = `
+const css = `
     html {
         --pointer - move - line - color: #03f;
     }
@@ -99,83 +77,45 @@ let link = document.createElement('link');
 link.rel = 'stylesheet';
 document.head.appendChild(link);
 
-let baselineBeacon = document.createElement('div');
-baselineBeacon.className = 'baselineBeacon';
-baselineBeacon.innerText = 'x';
-document.body.appendChild(baselineBeacon);
-
-function fmtnum(n) {
-  let s = n.toFixed(2);
-  if (s.substr(-3) == '.00') {
-    s = s.substr(0, s.length - 3);
-  }
-  return s;
-}
-
 function setLabel(id, value) {
-  let label = document.getElementById(id);
+  const label = document.getElementById(id);
   label && (label.innerText = value);
 }
 
-let tapevent = 'PointerEvent' in window ? 'pointerdown' : 'click';
+const tapevent = 'PointerEvent' in window ? 'pointerdown' : 'click';
 
 function bindTapableOption(msgname, fn) {
-  let label = document.getElementById(msgname + '-msg');
+  const label = document.getElementById(msgname + '-msg');
   label && label.parentElement.addEventListener(tapevent, fn);
 }
 
-let baseline = 0;
-
 function updateInvertedLabel() {
-  let on = document.documentElement.classList.contains('inverted');
+  const on = document.documentElement.classList.contains('inverted');
   setLabel('inverted-msg', on ? 'NNN' : 'FFF');
 }
 
-function toggleInvertedMode() {
-  document.documentElement.classList.toggle('inverted');
+function updateSizeModeLabel() {
+  const rel = document.documentElement.classList.contains('size-mode-relative');
+  setLabel('size-mode-msg', rel ? 'Viewport' : 'Constant');
+}
+
+function toggleInvertedMode () {
+  document.documentElement.classList.toggle('inverted')
+  $('#circle').toggleClass('special');
+  $('.slider').toggleClass('sliderActive');
   updateInvertedLabel();
 }
+
+$('#circle').on('click', function() {
+  document.documentElement.classList.toggle('inverted')
+  $(this).toggleClass('special');
+  $('.slider').toggleClass('sliderActive');
+  updateInvertedLabel();
+});
 
 function toggleSizeMode() {
   document.documentElement.classList.toggle('size-mode-relative');
   updateSizeModeLabel();
-  updateComputedValueLabels();
-  setTimeout(updateComputedValueLabels, 10);
-}
-
-let pointerMoveLine = null;
-
-function togglePointerLine(on) {
-  document.removeEventListener('mousemove', movePointerLine);
-  document.removeEventListener('mousedown', pointerLineMouseDown);
-  document.removeEventListener('mouseup', pointerLineMouseUp);
-  if (on) {
-    if (!pointerMoveLine) {
-      pointerMoveLine = document.createElement('div');
-      pointerMoveLine.className = 'pointerMoveLine';
-      document.body.appendChild(pointerMoveLine);
-    }
-    document.addEventListener('mousemove', movePointerLine);
-    document.addEventListener('mousedown', pointerLineMouseDown);
-    document.addEventListener('mouseup', pointerLineMouseUp);
-    pointerMoveLine.classList.add('active');
-  } else if (pointerMoveLine) {
-    pointerMoveLine.classList.remove('active');
-  }
-}
-
-function pointerLineMouseDown() {
-  pointerMoveLine.classList.add('pressed');
-}
-
-function pointerLineMouseUp() {
-  pointerMoveLine.classList.remove('pressed');
-}
-
-function movePointerLine(ev) {
-  let y = ev.pageY + baseline / 4;
-  y = y - (y % (baseline / 2));
-  pointerMoveLine.style.transform = `translate3d(0,${y - 0.5}px,0)`;
 }
 
 bindTapableOption('inverted', toggleInvertedMode);
@@ -211,16 +151,9 @@ window.addEventListener('resize', (ev) => {
   if (resizeTimer === null) {
     resizeTimer = setTimeout(() => {
       resizeTimer = null;
-      updateComputedValueLabels();
     }, 100);
   }
 });
 
-// main
-
 updateInvertedLabel();
 updateSizeModeLabel();
-
-updateComputedValueLabels();
-
-

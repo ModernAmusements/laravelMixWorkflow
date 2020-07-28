@@ -11287,32 +11287,14 @@ slider.oninput = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {$(document).ready(function () {
-  'use strict'; //loader
+/* WEBPACK VAR INJECTION */(function($) {$('#burger').click(function () {
+  $(this).toggleClass('open');
+  $('#mobile-nav').slideToggle('medium', function () {
+    if ($(this).is(':visible')) {
+      $(this).css('display', 'block');
+    }
 
-  setTimeout(function () {
-    $('#loader').fadeOut();
-  }, 1000);
-  setTimeout(function () {
-    $('#loader').remove();
-  }, 2000); //Remove Splash on devices
-
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
-    /*GENERAL*/
-    $('#splash').remove();
-    $('#container').removeClass('blur');
-  } //Sun
-
-
-  $('#sun').click(function () {
-    $('body').toggleClass('sun-active');
-  });
-  $('#burger').click(function () {
-    $(this).toggleClass('open');
-    $('#mobile-nav').slideToggle('medium', function () {
-      if ($(this).is(':visible')) $(this).css('display', 'block');
-      $('body').css('overflow', 'hidden');
-    });
+    $('body').css('overflow', 'hidden');
   });
 });
 var ua = navigator.userAgent;
@@ -11330,20 +11312,6 @@ document.head.appendChild(style);
 var link = document.createElement('link');
 link.rel = 'stylesheet';
 document.head.appendChild(link);
-var baselineBeacon = document.createElement('div');
-baselineBeacon.className = 'baselineBeacon';
-baselineBeacon.innerText = 'x';
-document.body.appendChild(baselineBeacon);
-
-function fmtnum(n) {
-  var s = n.toFixed(2);
-
-  if (s.substr(-3) == '.00') {
-    s = s.substr(0, s.length - 3);
-  }
-
-  return s;
-}
 
 function setLabel(id, value) {
   var label = document.getElementById(id);
@@ -11357,60 +11325,33 @@ function bindTapableOption(msgname, fn) {
   label && label.parentElement.addEventListener(tapevent, fn);
 }
 
-var baseline = 0;
-
 function updateInvertedLabel() {
   var on = document.documentElement.classList.contains('inverted');
   setLabel('inverted-msg', on ? 'NNN' : 'FFF');
 }
 
+function updateSizeModeLabel() {
+  var rel = document.documentElement.classList.contains('size-mode-relative');
+  setLabel('size-mode-msg', rel ? 'Viewport' : 'Constant');
+}
+
 function toggleInvertedMode() {
   document.documentElement.classList.toggle('inverted');
+  $('#circle').toggleClass('special');
+  $('.slider').toggleClass('sliderActive');
   updateInvertedLabel();
 }
+
+$('#circle').on('click', function () {
+  document.documentElement.classList.toggle('inverted');
+  $(this).toggleClass('special');
+  $('.slider').toggleClass('sliderActive');
+  updateInvertedLabel();
+});
 
 function toggleSizeMode() {
   document.documentElement.classList.toggle('size-mode-relative');
   updateSizeModeLabel();
-  updateComputedValueLabels();
-  setTimeout(updateComputedValueLabels, 10);
-}
-
-var pointerMoveLine = null;
-
-function togglePointerLine(on) {
-  document.removeEventListener('mousemove', movePointerLine);
-  document.removeEventListener('mousedown', pointerLineMouseDown);
-  document.removeEventListener('mouseup', pointerLineMouseUp);
-
-  if (on) {
-    if (!pointerMoveLine) {
-      pointerMoveLine = document.createElement('div');
-      pointerMoveLine.className = 'pointerMoveLine';
-      document.body.appendChild(pointerMoveLine);
-    }
-
-    document.addEventListener('mousemove', movePointerLine);
-    document.addEventListener('mousedown', pointerLineMouseDown);
-    document.addEventListener('mouseup', pointerLineMouseUp);
-    pointerMoveLine.classList.add('active');
-  } else if (pointerMoveLine) {
-    pointerMoveLine.classList.remove('active');
-  }
-}
-
-function pointerLineMouseDown() {
-  pointerMoveLine.classList.add('pressed');
-}
-
-function pointerLineMouseUp() {
-  pointerMoveLine.classList.remove('pressed');
-}
-
-function movePointerLine(ev) {
-  var y = ev.pageY + baseline / 4;
-  y = y - y % (baseline / 2);
-  pointerMoveLine.style.transform = "translate3d(0,".concat(y - 0.5, "px,0)");
 }
 
 bindTapableOption('inverted', toggleInvertedMode);
@@ -11446,14 +11387,11 @@ window.addEventListener('resize', function (ev) {
   if (resizeTimer === null) {
     resizeTimer = setTimeout(function () {
       resizeTimer = null;
-      updateComputedValueLabels();
     }, 100);
   }
-}); // main
-
+});
 updateInvertedLabel();
 updateSizeModeLabel();
-updateComputedValueLabels();
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
