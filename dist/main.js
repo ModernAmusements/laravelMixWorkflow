@@ -11313,7 +11313,7 @@ function setLabel(id, value) {
 
 var enableInverted = function enableInverted() {
   document.documentElement.classList.add('inverted');
-  invertedToggle.classList.add('special');
+  invertedToggle.classList.add('darkmodeSlide');
   slider.classList.add('sliderActive');
   localStorage.setItem('inverted', 'enabled');
 };
@@ -11328,7 +11328,7 @@ if (inverted === 'enabled') {
 }
 
 invertedToggle.addEventListener('click', function () {
-  invertedToggle.classList.toggle('special');
+  invertedToggle.classList.toggle('darkmodeSlide');
   slider.classList.toggle('sliderActive');
   inverted = localStorage.getItem('inverted');
 
@@ -11353,7 +11353,7 @@ function updateInvertedLabel() {
 }
 
 function toggleInvertedMode() {
-  invertedToggle.classList.toggle('special');
+  invertedToggle.classList.toggle('darkmodeSlide');
   slider.classList.toggle('sliderActive');
   inverted = localStorage.getItem('inverted');
 

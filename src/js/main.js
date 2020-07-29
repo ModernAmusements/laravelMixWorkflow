@@ -79,7 +79,7 @@ function setLabel (id, value) {
 
 const enableInverted = () => {
   document.documentElement.classList.add('inverted')
-  invertedToggle.classList.add('special')
+  invertedToggle.classList.add('darkmodeSlide')
   slider.classList.add('sliderActive')
   localStorage.setItem('inverted', 'enabled')
 }
@@ -94,7 +94,7 @@ if (inverted === 'enabled') {
 }
 
 invertedToggle.addEventListener('click', () => {
-  invertedToggle.classList.toggle('special')
+  invertedToggle.classList.toggle('darkmodeSlide')
   slider.classList.toggle('sliderActive')
   inverted = localStorage.getItem('inverted')
 
@@ -119,7 +119,7 @@ function updateInvertedLabel () {
   setLabel('inverted-msg', on ? 'NNNCorp™' : 'FFFCorp™')
 }
 function toggleInvertedMode () {
-  invertedToggle.classList.toggle('special')
+  invertedToggle.classList.toggle('darkmodeSlide')
   slider.classList.toggle('sliderActive')
   inverted = localStorage.getItem('inverted')
 

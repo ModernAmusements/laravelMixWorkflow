@@ -1,19 +1,6 @@
-@font-face {
-  font-family: 'NeueHaasUnicaPro';
-  src: url('/Users/shady/Desktop/laravelMixWorkflow/fonts/NeueHaasUnicaPro-Regular.eot');
-  src: url('/Users/shady/Desktop/laravelMixWorkflow/fonts/NeueHaasUnicaPro-Regular.eot?#iefix') format('embedded-opentype'),
-      url('/Users/shady/Desktop/laravelMixWorkflow/fonts/NeueHaasUnicaPro-Regular.woff2') format('woff2'),
-      url('/Users/shady/Desktop/laravelMixWorkflow/fonts/NeueHaasUnicaPro-Regular.woff') format('woff'),
-      url('/Users/shady/Desktop/laravelMixWorkflow/fonts/NeueHaasUnicaPro-Regular.ttf') format('truetype'),
-      url('/Users/shady/Desktop/laravelMixWorkflow/fonts/NeueHaasUnicaPro-Regular.svg#NeueHaasUnicaPro-Regular') format('svg');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --fontSize: 14px;
-  --sansFont: "NeueHaasUnicaPro";
+  --sansFont: "neue-haas-unica";
   --monoFont: "iaw-mono";
   --lineHeight: calc(var(--fontSize) * 1.5);
   --baseline: calc(var(--lineHeight) / 2);
@@ -41,7 +28,7 @@
 }
 @supports (font-variation-settings: normal) {
   :root {
-    --sansFont: "NeueHaasUnicaPro";
+    --sansFont: "neue-haas-unica";
     --monoFont: "iaw-mono-var";
   }
 }
@@ -196,6 +183,7 @@ html {
 }
 
 body {
+  transition: .4s;
   scroll-behavior: smooth;
   overflow-x: hidden;
   padding: calc(var(--lineHeight) * 2);

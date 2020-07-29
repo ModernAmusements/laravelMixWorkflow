@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="">
+
 <head>
   <meta charset="utf-8" />
   <title>FffCorp</title>
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://use.typekit.net/man4ikk.css">
   <link rel="stylesheet" href="dist/index.css" />
   <meta name="theme-color" content="#fafafa" />
 </head>
+
 <body>
   <main>
     <header>
@@ -98,31 +99,43 @@
         </h1>
       </section>
     </article>
-    <!-- <section class="divider">
-      </section>
-      <section class="controlsPage">
-        <p>Blur</p>
+    <article class="divider">
+    </article>
+    <article class="controlsPage">
+      <section class="blurOption">
+        <p class="medium">Blur</p>
         <label class="slide">
           <input type="range" min="30" max="220" value="125" step="1">
         </label>
-        <p>Background</p>
-        <label class="switch">
-          <input type="checkbox">
-          <span class="slider round"></span>
+      </section>
+      <section class="backgroundOption">
+        <p class="medium">Background</p>
+        <label class="switchBackground">
+          <span class="slider">
+            <div id="circle"></div>
+          </span>
         </label>
+      </section>
+      <section class="shapeOption">
         <a href="">ADD SHAPE</a>
         <a href="">DELETE SHAPE</a>
       </section>
-      <footer>
+    </article>
+    <footer>
+      <article class="footerText">
         <h3>Do You NEED A Visual Translator for you Project?</h3>
-        <svg width="402" height="42" viewBox="0 0 402 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M397 23.5002H0V18.5002H397V23.5002Z" fill="black" />
-          <path d="M398.506 17.6775L401.335 20.5059L380.828 41.012L378 38.1836L398.506 17.6775Z" fill="black" />
-          <path d="M401.335 20.5059L398.506 23.3345L378 2.82843L380.828 0L401.335 20.5059Z" fill="black" />
+      </article>
+      <article class="svgFooter">
+        <svg viewBox="0 0 402 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M397 23.5002H0V18.5002H397V23.5002Z" />
+          <path d="M398.506 17.6775L401.335 20.5059L380.828 41.012L378 38.1836L398.506 17.6775Z" />
+          <path d="M401.335 20.5059L398.506 23.3345L378 2.82843L380.828 0L401.335 20.5059Z" />
         </svg>
+      </article>
+      <article class="callToAction">
         <a href="">HIT ME UP</a>
-      </footer>  -->
-
+      </article>
+    </footer>
   </main>
   <script type="text/javascript" src="/dist/main.js"></script>
 </body>
