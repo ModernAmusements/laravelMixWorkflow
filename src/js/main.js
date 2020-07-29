@@ -1,18 +1,13 @@
-$('#burger').click(function() {
-  $(this).toggleClass('open');
-  $('#mobile-nav').slideToggle('medium', function() {
-    if ($(this).is(':visible')) {
-      $(this).css('display', 'block');
-    }
-    $('body').css('overflow', 'hidden');
-  });
-});
 
-let ua = navigator.userAgent;
-if (ua.indexOf('Chrome/') != -1) {
-  document.documentElement.classList.add('chrome');
-} else if (ua.indexOf('Firefox/') != -1) {
-  document.documentElement.classList.add('firefox');
+let inverted = localStorage.getItem('inverted')
+const invertedToggle = document.querySelector('#circle')
+const slider = document.querySelector('.slider')
+
+const userAgent = navigator.userAgent
+if (userAgent.indexOf('Chrome/') != -1) {
+  document.documentElement.classList.add('chrome')
+} else if (userAgent.indexOf('Firefox/') != -1) {
+  document.documentElement.classList.add('firefox')
 }
 
 const css = `
@@ -69,91 +64,116 @@ const css = `
         0 1px 0 0 var(--pointer-move-line-color),
         0 -1px 0 0 var(--pointer-move-line-color);
     }
-    `.trim();
-let style = document.createElement('style');
-style.appendChild(document.createTextNode(css));
-document.head.appendChild(style);
-let link = document.createElement('link');
-link.rel = 'stylesheet';
-document.head.appendChild(link);
+    `.trim()
+let style = document.createElement('style')
+style.appendChild(document.createTextNode(css))
+document.head.appendChild(style)
+let link = document.createElement('link')
+link.rel = 'stylesheet'
+document.head.appendChild(link)
 
-function setLabel(id, value) {
-  const label = document.getElementById(id);
-  label && (label.innerText = value);
+function setLabel (id, value) {
+  const label = document.getElementById(id)
+  label && (label.innerText = value)
 }
 
-const tapevent = 'PointerEvent' in window ? 'pointerdown' : 'click';
-
-function bindTapableOption(msgname, fn) {
-  const label = document.getElementById(msgname + '-msg');
-  label && label.parentElement.addEventListener(tapevent, fn);
+const enableInverted = () => {
+  document.documentElement.classList.add('inverted')
+  invertedToggle.classList.add('special')
+  slider.classList.add('sliderActive')
+  localStorage.setItem('inverted', 'enabled')
 }
 
-function updateInvertedLabel() {
-  const on = document.documentElement.classList.contains('inverted');
-  setLabel('inverted-msg', on ? 'NNNCorp™' : 'FFFCorp™');
+const disableInverted = () => {
+  document.documentElement.classList.remove('inverted')
+  localStorage.setItem('inverted', null)
 }
 
-function updateSizeModeLabel() {
-  const rel = document.documentElement.classList.contains('size-mode-relative');
-  setLabel('size-mode-msg', rel ? 'Viewport' : 'Constant');
+if (inverted === 'enabled') {
+  enableInverted()
 }
 
+invertedToggle.addEventListener('click', () => {
+  invertedToggle.classList.toggle('special')
+  slider.classList.toggle('sliderActive')
+  inverted = localStorage.getItem('inverted')
+
+  if (inverted !== 'enabled') {
+    enableInverted()
+    updateInvertedLabel()
+  } else {
+    disableInverted()
+    updateInvertedLabel()
+  }
+})
+
+const tapevent = 'PointerEvent' in window ? 'pointerdown' : 'click'
+
+function bindTapableOption (msgname, fn) {
+  const label = document.getElementById(msgname + '-msg')
+  label && label.parentElement.addEventListener(tapevent, fn)
+}
+
+function updateInvertedLabel () {
+  const on = document.documentElement.classList.contains('inverted')
+  setLabel('inverted-msg', on ? 'NNNCorp™' : 'FFFCorp™')
+}
 function toggleInvertedMode () {
-  document.documentElement.classList.toggle('inverted')
-  $('#circle').toggleClass('special');
-  $('.slider').toggleClass('sliderActive');
-  updateInvertedLabel();
+  invertedToggle.classList.toggle('special')
+  slider.classList.toggle('sliderActive')
+  inverted = localStorage.getItem('inverted')
+
+  if (inverted !== 'enabled') {
+    enableInverted()
+    updateInvertedLabel()
+  } else {
+    disableInverted()
+    updateInvertedLabel()
+  }
 }
 
-$('#circle').on('click', function() {
-  document.documentElement.classList.toggle('inverted')
-  $(this).toggleClass('special');
-  $('.slider').toggleClass('sliderActive');
-  updateInvertedLabel();
-});
 
-function toggleSizeMode() {
-  document.documentElement.classList.toggle('size-mode-relative');
-  updateSizeModeLabel();
-}
+bindTapableOption('inverted', toggleInvertedMode)
 
-bindTapableOption('inverted', toggleInvertedMode);
-bindTapableOption('size-mode', toggleSizeMode);
-
-function handleKeyPress(key) {
+function handleKeyPress (key) {
   switch (key) {
     case 'i':
     case 'I':
-      toggleInvertedMode();
-      return true;
-    case 's':
-    case 'S':
-      toggleSizeMode();
-      return true;
+      toggleInvertedMode()
+      return true
   }
-  return false;
+  return false
 }
 
 document.addEventListener(
   'keypress',
   (ev) => {
     if (!ev.metaKey && !ev.ctrlKey && !ev.altKey && handleKeyPress(ev.key)) {
-      ev.preventDefault();
-      ev.stopPropagation();
+      ev.preventDefault()
+      ev.stopPropagation()
     }
   },
   { passive: false, capture: true }
-);
+)
 
-let resizeTimer = null;
-window.addEventListener('resize', (ev) => {
-  if (resizeTimer === null) {
-    resizeTimer = setTimeout(() => {
-      resizeTimer = null;
-    }, 100);
-  }
-});
 
-updateInvertedLabel();
-updateSizeModeLabel();
+updateInvertedLabel()
+
+
+// $('#circle').on('click', function() {
+//   document.documentElement.classList.toggle('inverted')
+//   $('#circle').toggleClass('special');
+//   $('.slider').toggleClass('sliderActive');
+//   updateInvertedLabel();
+// });
+
+
+$('#burger').click(function () {
+  $(this).toggleClass('open')
+  $('#mobile-nav').slideToggle('medium', function () {
+    if ($(this).is(':visible')) {
+      $(this).css('display', 'block')
+    }
+    $('body').css('overflow', 'hidden')
+  })
+})

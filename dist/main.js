@@ -11287,21 +11287,14 @@ slider.oninput = function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {$('#burger').click(function () {
-  $(this).toggleClass('open');
-  $('#mobile-nav').slideToggle('medium', function () {
-    if ($(this).is(':visible')) {
-      $(this).css('display', 'block');
-    }
+/* WEBPACK VAR INJECTION */(function($) {var inverted = localStorage.getItem('inverted');
+var invertedToggle = document.querySelector('#circle');
+var slider = document.querySelector('.slider');
+var userAgent = navigator.userAgent;
 
-    $('body').css('overflow', 'hidden');
-  });
-});
-var ua = navigator.userAgent;
-
-if (ua.indexOf('Chrome/') != -1) {
+if (userAgent.indexOf('Chrome/') != -1) {
   document.documentElement.classList.add('chrome');
-} else if (ua.indexOf('Firefox/') != -1) {
+} else if (userAgent.indexOf('Firefox/') != -1) {
   document.documentElement.classList.add('firefox');
 }
 
@@ -11318,6 +11311,35 @@ function setLabel(id, value) {
   label && (label.innerText = value);
 }
 
+var enableInverted = function enableInverted() {
+  document.documentElement.classList.add('inverted');
+  invertedToggle.classList.add('special');
+  slider.classList.add('sliderActive');
+  localStorage.setItem('inverted', 'enabled');
+};
+
+var disableInverted = function disableInverted() {
+  document.documentElement.classList.remove('inverted');
+  localStorage.setItem('inverted', null);
+};
+
+if (inverted === 'enabled') {
+  enableInverted();
+}
+
+invertedToggle.addEventListener('click', function () {
+  invertedToggle.classList.toggle('special');
+  slider.classList.toggle('sliderActive');
+  inverted = localStorage.getItem('inverted');
+
+  if (inverted !== 'enabled') {
+    enableInverted();
+    updateInvertedLabel();
+  } else {
+    disableInverted();
+    updateInvertedLabel();
+  }
+});
 var tapevent = 'PointerEvent' in window ? 'pointerdown' : 'click';
 
 function bindTapableOption(msgname, fn) {
@@ -11330,43 +11352,27 @@ function updateInvertedLabel() {
   setLabel('inverted-msg', on ? 'NNNCorp™' : 'FFFCorp™');
 }
 
-function updateSizeModeLabel() {
-  var rel = document.documentElement.classList.contains('size-mode-relative');
-  setLabel('size-mode-msg', rel ? 'Viewport' : 'Constant');
-}
-
 function toggleInvertedMode() {
-  document.documentElement.classList.toggle('inverted');
-  $('#circle').toggleClass('special');
-  $('.slider').toggleClass('sliderActive');
-  updateInvertedLabel();
-}
+  invertedToggle.classList.toggle('special');
+  slider.classList.toggle('sliderActive');
+  inverted = localStorage.getItem('inverted');
 
-$('#circle').on('click', function () {
-  document.documentElement.classList.toggle('inverted');
-  $(this).toggleClass('special');
-  $('.slider').toggleClass('sliderActive');
-  updateInvertedLabel();
-});
-
-function toggleSizeMode() {
-  document.documentElement.classList.toggle('size-mode-relative');
-  updateSizeModeLabel();
+  if (inverted !== 'enabled') {
+    enableInverted();
+    updateInvertedLabel();
+  } else {
+    disableInverted();
+    updateInvertedLabel();
+  }
 }
 
 bindTapableOption('inverted', toggleInvertedMode);
-bindTapableOption('size-mode', toggleSizeMode);
 
 function handleKeyPress(key) {
   switch (key) {
     case 'i':
     case 'I':
       toggleInvertedMode();
-      return true;
-
-    case 's':
-    case 'S':
-      toggleSizeMode();
       return true;
   }
 
@@ -11382,16 +11388,23 @@ document.addEventListener('keypress', function (ev) {
   passive: false,
   capture: true
 });
-var resizeTimer = null;
-window.addEventListener('resize', function (ev) {
-  if (resizeTimer === null) {
-    resizeTimer = setTimeout(function () {
-      resizeTimer = null;
-    }, 100);
-  }
+updateInvertedLabel(); // $('#circle').on('click', function() {
+//   document.documentElement.classList.toggle('inverted')
+//   $('#circle').toggleClass('special');
+//   $('.slider').toggleClass('sliderActive');
+//   updateInvertedLabel();
+// });
+
+$('#burger').click(function () {
+  $(this).toggleClass('open');
+  $('#mobile-nav').slideToggle('medium', function () {
+    if ($(this).is(':visible')) {
+      $(this).css('display', 'block');
+    }
+
+    $('body').css('overflow', 'hidden');
+  });
 });
-updateInvertedLabel();
-updateSizeModeLabel();
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),

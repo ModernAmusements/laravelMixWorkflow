@@ -848,6 +848,51 @@ header {
   height: 0;
 }
 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: solid 1px var(--foreground-color);
+  transition: 0.4s;
+  text-indent: -99999px;
+  background-color: var(--background-color);
+}
+
+.sliderActive {
+  background-color: var(--foreground-color);
+}
+
+#inverted-msg {
+  cursor: pointer;
+}
+
+#circle {
+  cursor: pointer;
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 3px;
+  border-radius: 99em;
+  background-color: var(--foreground-color);
+  transition: 0.4s;
+}
+
+.special {
+  transform: translateX(26px);
+  background-color: var(--background-color) !important;
+}
+
 .desktop,
 .langToggle {
   display: grid;
@@ -963,7 +1008,6 @@ footer h3 {
 
 .slider {
   position: absolute;
-  cursor: pointer;
   top: 0;
   left: 0;
   right: 0;
@@ -978,7 +1022,12 @@ footer h3 {
   background-color: var(--foreground-color);
 }
 
+#inverted-msg {
+  cursor: pointer;
+}
+
 #circle {
+  cursor: pointer;
   position: absolute;
   content: "";
   height: 26px;
