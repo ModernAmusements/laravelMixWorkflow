@@ -291,8 +291,7 @@ tt,
 u,
 ul,
 var,
-video,
-nav {
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -1262,30 +1261,28 @@ footer {
   grid-column-gap: 10px;
   grid-row-gap: var(--rowGap);
   align-items: center;
-  justify-content: space-between;
-}
-
-footer svg {
-  grid-area: 1/7/1/7;
-  display: grid;
-  width: 100%;
-  min-width: 23vw;
-  height: auto;
-  fill: var(--foreground-color);
 }
 
 footer h2 {
   grid-area: 1/1/1/6;
   display: grid;
-  font-size: 2vw;
+  font-size: 2.1vw;
   text-transform: uppercase;
   margin-bottom: 0;
-  white-space: nowrap;
+}
+
+footer svg {
+  grid-area: 1/6/1/8;
+  display: grid;
+  width: 100%;
+  height: auto;
+  fill: var(--foreground-color);
 }
 
 .callToAction {
   grid-area: 1/8/1/9;
   display: grid;
+  justify-items: flex-end;
 }
 
 .callToAction a {
@@ -1296,13 +1293,6 @@ footer h2 {
 #mobile-nav,
 .mobile-display {
   display: none;
-}
-
-@media only screen and (min-width: 1150px) {
-  footer svg {
-    width: 100%;
-    min-width: 25vw;
-  }
 }
 
 @media (min-width: 320px) and (max-width: 1150px) {
