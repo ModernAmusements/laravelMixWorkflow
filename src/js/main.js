@@ -1,7 +1,7 @@
 
 let inverted = localStorage.getItem('inverted')
 const invertedToggle = document.querySelector('#circle')
-const slider = document.querySelector('.slider')
+const slider = document.querySelector('.sliderToggle')
 
 const userAgent = navigator.userAgent
 if (userAgent.indexOf('Chrome/') != -1) {
@@ -80,7 +80,7 @@ function setLabel (id, value) {
 const enableInverted = () => {
   document.documentElement.classList.add('inverted')
   invertedToggle.classList.add('darkmodeSlide')
-  slider.classList.add('sliderActive')
+  slider.classList.add('sliderToggleActive')
   localStorage.setItem('inverted', 'enabled')
 }
 
@@ -95,7 +95,7 @@ if (inverted === 'enabled') {
 
 invertedToggle.addEventListener('click', () => {
   invertedToggle.classList.toggle('darkmodeSlide')
-  slider.classList.toggle('sliderActive')
+  slider.classList.toggle('sliderToggleActive')
   inverted = localStorage.getItem('inverted')
 
   if (inverted !== 'enabled') {
@@ -120,7 +120,7 @@ function updateInvertedLabel () {
 }
 function toggleInvertedMode () {
   invertedToggle.classList.toggle('darkmodeSlide')
-  slider.classList.toggle('sliderActive')
+  slider.classList.toggle('sliderToggleActive')
   inverted = localStorage.getItem('inverted')
 
   if (inverted !== 'enabled') {
