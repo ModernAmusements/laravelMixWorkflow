@@ -65,10 +65,10 @@ const css = `
         0 -1px 0 0 var(--pointer-move-line-color);
     }
     `.trim()
-let style = document.createElement('style')
+const style = document.createElement('style')
 style.appendChild(document.createTextNode(css))
 document.head.appendChild(style)
-let link = document.createElement('link')
+const link = document.createElement('link')
 link.rel = 'stylesheet'
 document.head.appendChild(link)
 
@@ -132,7 +132,6 @@ function toggleInvertedMode () {
   }
 }
 
-
 bindTapableOption('inverted', toggleInvertedMode)
 
 function handleKeyPress (key) {
@@ -156,9 +155,7 @@ document.addEventListener(
   { passive: false, capture: true }
 )
 
-
 updateInvertedLabel()
-
 
 // $('#circle').on('click', function() {
 //   document.documentElement.classList.toggle('inverted')
@@ -167,13 +164,24 @@ updateInvertedLabel()
 //   updateInvertedLabel();
 // });
 
+var $window = $(window)
+var $mobileNav = $('#mobile-nav')
+var $bugerMenu = $('#burger')
 
-$('#burger').click(function () {
-  $(this).toggleClass('open')
-  $('#mobile-nav').slideToggle('medium', function () {
-    if ($(this).is(':visible')) {
-      $(this).css('display', 'block')
-    }
-    $('body').css('overflow', 'hidden')
+$bugerMenu.click(function () {
+  $bugerMenu.toggleClass('open')
+  $mobileNav.slideToggle('medium', function () {
+    if ($mobileNav.is(':visible')) {
+      $mobileNav.css('display', 'block')
+    } else { $mobileNav.css('display', 'none') }
   })
+})
+
+$window.resize(function () {
+  if ($window.width() > 1050) { $mobileNav.slideUp('medium') }
+})
+
+
+$window.resize(function () {
+  if ($window.width() > 1050) { $bugerMenu.removeClass('open') }
 })

@@ -11395,15 +11395,28 @@ updateInvertedLabel(); // $('#circle').on('click', function() {
 //   updateInvertedLabel();
 // });
 
-$('#burger').click(function () {
-  $(this).toggleClass('open');
-  $('#mobile-nav').slideToggle('medium', function () {
-    if ($(this).is(':visible')) {
-      $(this).css('display', 'block');
+var $window = $(window);
+var $mobileNav = $('#mobile-nav');
+var $bugerMenu = $('#burger');
+$bugerMenu.click(function () {
+  $bugerMenu.toggleClass('open');
+  $mobileNav.slideToggle('medium', function () {
+    if ($mobileNav.is(':visible')) {
+      $mobileNav.css('display', 'block');
+    } else {
+      $mobileNav.css('display', 'none');
     }
-
-    $('body').css('overflow', 'hidden');
   });
+});
+$window.resize(function () {
+  if ($window.width() > 1050) {
+    $mobileNav.slideUp('medium');
+  }
+});
+$window.resize(function () {
+  if ($window.width() > 1050) {
+    $bugerMenu.removeClass('open');
+  }
 });
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
