@@ -14170,11 +14170,11 @@ $(".work-content").each(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/main.js */"./src/js/main.js");
-__webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/swiper.min.js */"./src/js/swiper.min.js");
-__webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/main-type.js */"./src/js/main-type.js");
-__webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/js/current-device.min */"./src/js/current-device.min.js");
-module.exports = __webpack_require__(/*! /Users/shady/Desktop/laravelMixWorkflow/src/scss/index.scss */"./src/scss/index.scss");
+__webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/main.js */"./src/js/main.js");
+__webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/swiper.min.js */"./src/js/swiper.min.js");
+__webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/main-type.js */"./src/js/main-type.js");
+__webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/current-device.min */"./src/js/current-device.min.js");
+module.exports = __webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/scss/index.scss */"./src/scss/index.scss");
 
 
 /***/ })
