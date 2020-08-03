@@ -14134,7 +14134,7 @@ $window.resize(function () {
   };
 });
 
-$(".work-content").each(function () {
+$(".workImages").each(function () {
   var $status = $(this).find(".textCount");
   var $slider = $(this).find(".slider");
   $slider.on("init reInit afterChange", function (event, slick, currentSlide, nextSlide) {
