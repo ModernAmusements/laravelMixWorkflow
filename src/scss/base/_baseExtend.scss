@@ -472,11 +472,12 @@ a:not(.home) {
   border-radius: 99em;
   display: inline-block;
   text-align: center;
-  padding: 0.5rem;
+  padding: 0.2rem;
   padding-right: 0.5rem;
   padding-left: 0.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
-  font-size: 18px;
+  line-height: var(--lineHeight);
   padding-left: 0;
   padding-right: 0;
   margin-left: 0.5em;
@@ -506,7 +507,7 @@ a:not(.home):active {
   background-color: var(--foreground-color);
   border: 1px solid var(--foreground-color);
 }
-header {
+header:not(.post-header) {
   position: sticky;
   top: 0;
   left: 0;
@@ -817,7 +818,7 @@ footer {
   nav:not(#mobile-nav) {
     display: none !important;
   }
-  header {
+  header:not(.post-header) {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: min-content 1fr;
     grid-column-gap: 10px;
@@ -902,7 +903,7 @@ footer {
     width: 100%;
     min-width: 11rem;
   }
-  /* Footer */
+
   footer {
     padding-top: calc(var(--lineHeight) * 1);
     border-top: 1px solid var(--foreground-color);

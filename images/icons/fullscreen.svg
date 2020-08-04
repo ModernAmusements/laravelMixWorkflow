@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>icons/ui/fullscreen</title>
+    <desc>Created with Sketch.</desc>
+    <g id="icons/ui/fullscreen" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M2,7 L2,11 L6,11 L6,13 L2.32702746e-13,13 L2.31814568e-13,7 L2,7 Z M13.0001831,0.000366210938 L13.0001831,6 L11.0001831,6 L11,2 L7,2 L7,7.10542736e-15 L13.0001831,0.000366210938 Z" fill="#0E4FF4"></path>
+    </g>
+</svg>

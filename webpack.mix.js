@@ -10,7 +10,6 @@ mix.autoload({
 mix.js([
     'src/js/main.js',
     'src/js/swiper.min.js',
-    'src/js/main-type.js',
     'src/js/current-device.min'
 ], 'dist/')
 

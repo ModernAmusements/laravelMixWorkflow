@@ -11233,53 +11233,6 @@ var aol = $.browser.aol(),
 
 /***/ }),
 
-/***/ "./src/js/main-type.js":
-/*!*****************************!*\
-  !*** ./src/js/main-type.js ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var wght2 = 800;
-var slnt2 = 0;
-var ital2 = 0.5;
-document.getElementById("fontSizeSlider").addEventListener("input", function () {
-  if (window.innerWidth > 767.98) {
-    document.getElementById("controls-result").style.fontSize = document.getElementById("fontSizeSlider").value + "vw";
-    document.getElementById("fontSizeResult").innerHTML = document.getElementById("fontSizeSlider").value + "vw";
-  } else {
-    document.getElementById("controls-result").style.fontSize = document.getElementById("fontSizeSlider").value * 2 + "vw";
-    document.getElementById("fontSizeResultSm").innerHTML = Math.floor(document.getElementById("fontSizeSlider").value * 2) + "vw";
-  }
-});
-document.getElementById("wghtSlider").addEventListener("input", function () {
-  wght2 = document.getElementById("wghtSlider").value;
-  document.getElementById("controls-result").style.fontVariationSettings = "'wght' ".concat(wght2, ", 'slnt' ").concat(slnt2, ", 'CRSV' ").concat(ital2);
-  document.getElementById("wghtResult").innerHTML = document.getElementById("wghtSlider").value;
-});
-document.getElementById("slntSlider").addEventListener("input", function () {
-  slnt2 = document.getElementById("slntSlider").value;
-  document.getElementById("controls-result").style.fontVariationSettings = "'wght' ".concat(wght2, ", 'slnt' ").concat(slnt2, ", 'CRSV' ").concat(ital2);
-  document.getElementById("slntResult").innerHTML = document.getElementById("slntSlider").value;
-});
-var slider = document.getElementById("range1");
-var output = document.getElementById("slider2");
-output.innerHTML = slider.value;
-
-slider.oninput = function () {
-  output.innerHTML = this.value;
-};
-
-var slider = document.getElementById("range2");
-var output = document.getElementById("slider1");
-output.innerHTML = slider.value;
-
-slider.oninput = function () {
-  output.innerHTML = this.value;
-};
-
-/***/ }),
-
 /***/ "./src/js/main.js":
 /*!************************!*\
   !*** ./src/js/main.js ***!
@@ -11966,7 +11919,7 @@ $window.resize(function () {
 
       _.$slider.children().children().children().css({
         'width': 100 / _.options.slidesPerRow + '%',
-        'display': 'inline-block'
+        'display': 'grid'
       });
     }
   };
@@ -14164,15 +14117,14 @@ $(".workImages").each(function () {
 /***/ }),
 
 /***/ 0:
-/*!*****************************************************************************************************************************!*\
-  !*** multi ./src/js/main.js ./src/js/swiper.min.js ./src/js/main-type.js ./src/js/current-device.min ./src/scss/index.scss ***!
-  \*****************************************************************************************************************************/
+/*!*******************************************************************************************************!*\
+  !*** multi ./src/js/main.js ./src/js/swiper.min.js ./src/js/current-device.min ./src/scss/index.scss ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/main.js */"./src/js/main.js");
 __webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/swiper.min.js */"./src/js/swiper.min.js");
-__webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/main-type.js */"./src/js/main-type.js");
 __webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/current-device.min */"./src/js/current-device.min.js");
 module.exports = __webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/scss/index.scss */"./src/scss/index.scss");
 
