@@ -1704,11 +1704,11 @@ nav.categories > *:first-child {
 }
 
 .workDescription {
-  grid-area: 1/1/1/4;
+  grid-area: 1/2/1/4;
 }
 
 .workImages {
-  grid-area: 1/4/3/9;
+  grid-area: 1/5/3/9;
 }
 
 .workSubpageLink {
