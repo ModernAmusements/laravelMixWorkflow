@@ -48,20 +48,20 @@ nav.categories>*:first-child {
   transition: all 0.2s;
 }
 
-.categories-title {
-  display: inline-block;
-  margin-right: 25px;
-  padding: 10px 0
-}
+// .categories-title {
+//   display: inline-block;
+//   margin-right: 25px;
+//   padding: 10px 0
+// }
 
-.categories-title span,
-.categories-title svg {
-  display: inline-block
-}
+// .categories-title span,
+// .categories-title svg {
+//   display: inline-block
+// }
 
-.categories-title span {
-  margin-right: .25em
-}
+// .categories-title span {
+//   margin-right: .25em
+// }
 
 .post {
   clear: both;
@@ -99,6 +99,17 @@ nav.categories>*:first-child {
 .post.toggle {
   transition: height .5s ease-in
 }
+
+.categories-title svg {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  width: 2rem;
+}
+
+.categories-title svg.toggle {
+  transform: rotate(45deg);
+}
+
 
 .post.toggle .post-header .post-thumbnail {
   visibility: hidden;
@@ -147,6 +158,12 @@ nav.categories>*:first-child {
   opacity: 0
 }
 
+
+.toogle.post-header svg {
+  transform: rotate(45deg);
+}
+
+
 .post-header {
   display: grid;
   grid-column-gap: 10px;
@@ -161,17 +178,7 @@ nav.categories>*:first-child {
   background: var(--foreground-color);
   color: var(--background-color);
   }
-  svg {
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  width: 2rem;
-  } 
 }
-
-.post-header svg.open {
-  transform: rotate(45deg);
-}
-
 
 .post-title {
   display: grid;
@@ -188,8 +195,9 @@ nav.categories>*:first-child {
   grid-auto-flow: column;
   justify-self: end;
 }
-#open-work { 
+.categories-title svg { 
   grid-area: 1 / 8 / 1 / 9;
+  transition: transform .2s ease;
   justify-self: end;
   .st0plus {
     fill: none;
@@ -198,6 +206,12 @@ nav.categories>*:first-child {
     stroke-width: 4px;
   }
 }
+
+svg#open-work .open {
+  transform: rotate(45deg);
+}
+
+
 
 .post-content {
   padding: calc(var(--lineHeight) * 1) 0;

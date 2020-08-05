@@ -49,7 +49,7 @@ function showIntro() {
 function handlePosts(baseElement) {
   var categories = baseElement.querySelector('.categories'); // var n
   var categoriesTitle = baseElement.querySelector('.categories-title'); // var t
-  var post = Array.from(baseElement.querySelectorAll('.post')); // var r
+  var post = Array.from(baseElement.querySelectorAll('.post'));
   categoriesTitle &&
     categoriesTitle.addEventListener('click', () => {
       categoriesTitle.parentElement.parentElement.classList.toggle(
@@ -93,7 +93,8 @@ function handlePosts(baseElement) {
           });
         }
       ),
-      post.forEach(function (item, _baseElement) {
+      post.forEach(function (item, baseElement) {
+        var openSvg = item.querySelector('svg');
         var o = item.querySelector('video');
         item.children[0].addEventListener('mouseenter', function (baseElement) {
           item.children[0].children[2] &&
@@ -113,14 +114,15 @@ function handlePosts(baseElement) {
             if (
               !item.classList.contains('toggle') 
             ) {
-              
               document.body.classList.add('post-toggled');
+              openSvg.classList.add('toggle');
               var categoriesTitle = post.find(function (baseElement) {
                 return baseElement.classList.contains('toggle');
               });
               if (categoriesTitle) {
                 categoriesTitle.classList.remove('toggle'),
                   categoriesTitle.removeAttribute('style');
+                  categoriesTitle.firstElementChild.lastChild.previousElementSibling.classList.remove('toggle');
                 var categories = categoriesTitle.querySelector('video');
                 categories &&
                   (categories.pause(), (categories.currentTime = 0));
@@ -128,7 +130,7 @@ function handlePosts(baseElement) {
               (item.dataset.height = item.children[1].offsetHeight + 50 + 'px'),
                 item.classList.add('toggle'),
                 (item.style.height = item.dataset.height);
-            } else item.classList.remove('toggle'), item.removeAttribute('style'), document.body.classList.remove('post-toggled'), o && (o.pause(), (o.currentTime = 0));
+            } else item.classList.remove('toggle'), openSvg.classList.remove('toggle'), item.removeAttribute('style'), document.body.classList.remove('post-toggled'), o && (o.pause(), (o.currentTime = 0));
             setTimeout(function () {
               item.children[0].scrollIntoView({
                 behavior: 'smooth',

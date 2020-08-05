@@ -1,4 +1,6 @@
-@import url(https://p.typekit.net/p.css?s=1&k=man4ikk&ht=tk&f=39510.39511.39512.39513.39514.39515.39516.39517.39518.39519.39520.39521.39522.39523.39524.39525.39526.39527&a=18114029&app=typekit&e=css);@font-face {
+@import url(https://p.typekit.net/p.css?s=1&k=man4ikk&ht=tk&f=39510.39511.39512.39513.39514.39515.39516.39517.39518.39519.39520.39521.39522.39523.39524.39525.39526.39527&a=18114029&app=typekit&e=css);@charset "UTF-8";
+
+@font-face {
   font-family: "neue-haas-unica";
   src: url("https://use.typekit.net/af/034166/00000000000000003b9b2056/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("woff2"), url("https://use.typekit.net/af/034166/00000000000000003b9b2056/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("woff"), url("https://use.typekit.net/af/034166/00000000000000003b9b2056/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3") format("opentype");
   font-display: auto;
@@ -1540,21 +1542,6 @@ nav.categories > *:first-child {
   transition: all 0.2s;
 }
 
-.categories-title {
-  display: inline-block;
-  margin-right: 25px;
-  padding: 10px 0;
-}
-
-.categories-title span,
-.categories-title svg {
-  display: inline-block;
-}
-
-.categories-title span {
-  margin-right: 0.25em;
-}
-
 .post {
   clear: both;
   position: relative;
@@ -1589,6 +1576,16 @@ nav.categories > *:first-child {
 
 .post.toggle {
   transition: height 0.5s ease-in;
+}
+
+.categories-title svg {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  width: 2rem;
+}
+
+.categories-title svg.toggle {
+  transform: rotate(45deg);
 }
 
 .post.toggle .post-header .post-thumbnail {
@@ -1637,6 +1634,10 @@ nav.categories > *:first-child {
   opacity: 0;
 }
 
+.toogle.post-header svg {
+  transform: rotate(45deg);
+}
+
 .post-header {
   display: grid;
   grid-column-gap: 10px;
@@ -1652,16 +1653,6 @@ nav.categories > *:first-child {
   padding: 0 0.2em;
   background: var(--foreground-color);
   color: var(--background-color);
-}
-
-.post-header svg {
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  width: 2rem;
-}
-
-.post-header svg.open {
-  transform: rotate(45deg);
 }
 
 .post-title {
@@ -1680,16 +1671,21 @@ nav.categories > *:first-child {
   justify-self: end;
 }
 
-#open-work {
+.categories-title svg {
   grid-area: 1/8/1/9;
+  transition: transform 0.2s ease;
   justify-self: end;
 }
 
-#open-work .st0plus {
+.categories-title svg .st0plus {
   fill: none;
   stroke: var(--foreground-color);
   stroke-linecap: round;
   stroke-width: 4px;
+}
+
+svg#open-work .open {
+  transform: rotate(45deg);
 }
 
 .post-content {
