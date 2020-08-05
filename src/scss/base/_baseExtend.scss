@@ -227,6 +227,11 @@ h1.xxxlarge,
   line-height: var(--lineHeight);
 }
 /* small text */
+.large {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: var(--lineHeight);
+}
 .medium {
   font-size: 1.2rem;
   font-weight: 500;
