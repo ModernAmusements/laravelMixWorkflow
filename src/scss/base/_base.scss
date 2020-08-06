@@ -191,16 +191,19 @@ body {
   padding-top: var(--lineHeight);
   
 }
+
+
+main {
+  min-height: calc(100vh - 250px)
+}
+
  @media only screen and (max-width: 600px) {
   body {
-     padding-top: 0;
-     padding-left: var(--lineHeight);
-     padding-right: var(--lineHeight);
-     padding-bottom: calc(var(--lineHeight) * 2);
-   }
+    padding: var(--lineHeight);
+    padding-bottom: calc(var(--lineHeight)*2);
   }
-
-
   main {
-    min-height: calc(100vh - 249px)
+    min-height: calc(100vh - 200px)
   }
+
+}

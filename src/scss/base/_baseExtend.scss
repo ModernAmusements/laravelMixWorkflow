@@ -237,6 +237,11 @@ h1.xxxlarge,
   font-weight: 500;
   line-height: var(--lineHeight);
 }
+
+.medium.single-line {
+  margin-top: var(--lineHeight);
+}
+
 .xsmall {
   font-size: 0.8em;
   line-height: calc(var(--lineHeight) * 0.75);
@@ -802,6 +807,25 @@ footer {
   }
 }
 
+footer {
+  section{
+    grid-area: 2 / 1 / 2 / 5;
+    border-top: 1px solid var(--foreground-color);
+  }
+  .information {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: var(--rowGap);
+    align-items: center;
+    
+  .col-1 {
+    display: grid;
+    grid-area: 2 / 1 / 2 / 3;
+    justify-self: start;
+    }
+  }
+}
 
 
 .navLang,
@@ -834,12 +858,14 @@ footer {
   .mobile-display {
     grid-area: 1 / 3 / 1 / 3;
     display: grid;
-    align-items: center;
     white-space: nowrap;
-    justify-items: flex-end;
+    align-self: center;
+    justify-self: end;
   }
   .langToggle {
     grid-area: 1 / 4 / 1 / 4;
+    justify-self: end;
+    align-self: center;
   }
   #mobile-nav {
     background-color: transparent;
@@ -933,6 +959,7 @@ footer {
       text-transform: uppercase;
       margin-bottom: 0;
       white-space: nowrap;
+      line-height: normal;
     }
   }
   .callToAction {
@@ -944,22 +971,24 @@ footer {
   }
   }
   @media only screen and (max-width: 720px) {
-    footer {
-      h2 {
-        grid-area: 1 / 1 / 1 / 3;
-        font-size: 2.4vw;
-        text-transform: uppercase;
-        margin-bottom: 0;
-        white-space: normal;
-        line-height: normal;
-      }
+    header:not(.post-header) {
+      padding-top: calc(var(--lineHeight) * 0.5);
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .home {
+      grid-area: 1 / 1 / 2 / 1;
+    }
+    .mobile-display {
+      grid-area: 1 / 2 / 1 / 3;
+      justify-self: end;
+      align-self: end;
+    }
+    #mobile-nav {
+      grid-area: 2 / 1 / 2 / 3;
     }
     .langToggle,
     footer svg {
       display: none;
-    }
-    .mobile-display {
-      grid-area: 1 / 4 / 1 / 4;
     }
     .lang {
       width: 6rem !important;
@@ -968,6 +997,19 @@ footer {
       display: block;
       justify-content: space-evenly;
       padding-top: calc(var(--lineHeight) * 0.5);
+      a {
+        border-radius: 50%;
+      }
+    }
+
+    footer {
+      grid-template-columns: repeat(2, 1fr);
+      h2 {
+        grid-area: 1 / 1 / 2 / 1;
+        white-space: normal;
+      }
+      .callToAction {
+        grid-area: 1 / 2 / 1 / 3;
     }
   }
-
+  }
