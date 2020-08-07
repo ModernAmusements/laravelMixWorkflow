@@ -776,58 +776,57 @@ input[type=range]::-webkit-slider-thumb:active {
 }
 /* Footer */
 footer {
-  padding-top: calc(var(--lineHeight) * 1);
+  text-transform: uppercase;
+  padding: calc(var(--lineHeight) * 1) 0;
   border-top: 1px solid var(--foreground-color);
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: var(--rowGap);
   align-items: center;
-  h2 {
-    grid-area: 1 / 1 / 1 / 6;
-    display: grid;
-    font-size: 2.1vw;
-    text-transform: uppercase;
-    margin-bottom: 0;
-  }
-  svg {
-    grid-area: 1 / 6 / 1 / 8;
-    display: grid;
-    width: 100%;
-    height: auto;
-    fill: var(--foreground-color);
-  }
-}
-.callToAction {
-  grid-area: 1 / 8 / 1 / 9;
-  display: grid;
-  justify-items: flex-end;
-  a {
-    width: 11rem;
-  }
-}
-
-footer {
-  section{
-    grid-area: 2 / 1 / 2 / 5;
-    border-top: 1px solid var(--foreground-color);
-  }
   .information {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: var(--rowGap);
-    align-items: center;
-    
-  .col-1 {
-    display: grid;
-    grid-area: 2 / 1 / 2 / 3;
+    align-self: start;
     justify-self: start;
+    grid-area: 1 / 1 / 1 / 4;
+    width: 100%;
+    .row-2 p:nth-child(1) {
+      width: 50%;
+      float: left;
     }
   }
+  .information-2 {
+    align-self: start;
+    justify-self: start;
+    grid-area: 1 / 4 / 1 / 5;
+    width: 100%;
+  }
+  .information-3 {
+    align-self: start;
+    justify-self: start;
+    grid-area: 1 / 5 / 1 / 6;
+    width: 100%;
+  }
+  .width-50 {
+    width: 50%;
+    border-bottom: 1px solid var(--foreground-color);
+  }
+
+  .border {
+    border-bottom: 1px solid var(--foreground-color);
+  }
+
+  p {
+    margin: 0;
+  }
+  strong {
+    display: block;
+    width: 100%;
+    padding: .5em 0 1em;
+    border-bottom: 1px solid var(--foreground-color);
+    margin-top: 2em;
+    break-before: column;
 }
-
-
+}
 .navLang,
 #mobile-nav,
 .mobile-display {
@@ -944,30 +943,6 @@ footer {
     grid-row-gap: var(--rowGap);
     align-items: center;
     justify-content: space-between;
-    svg {
-      grid-area: 1 / 2 / 1 / 4;
-      display: grid;
-      width: 100%;
-      min-width: 13vw;
-      height: auto;
-      fill: var(--foreground-color);
-    }
-    h2 {
-      grid-area: 1 / 1 / 1 / 2;
-      display: grid;
-      font-size: 2vw;
-      text-transform: uppercase;
-      margin-bottom: 0;
-      white-space: nowrap;
-      line-height: normal;
-    }
-  }
-  .callToAction {
-    grid-area: 1 / 4 / 1 / 5;
-    display: grid;
-    a {
-      width: 11rem;
-    }
   }
   }
   @media only screen and (max-width: 720px) {
@@ -1004,12 +979,5 @@ footer {
 
     footer {
       grid-template-columns: repeat(2, 1fr);
-      h2 {
-        grid-area: 1 / 1 / 2 / 1;
-        white-space: normal;
-      }
-      .callToAction {
-        grid-area: 1 / 2 / 1 / 3;
-    }
   }
   }
