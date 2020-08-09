@@ -869,7 +869,7 @@ footer {
   .navLang {
     display: none;
   }
-  nav:not(#mobile-nav) {
+  nav:not(#mobile-nav):not(.categories) {
     display: none !important;
   }
   header:not(.post-header) {

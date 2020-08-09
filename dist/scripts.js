@@ -48,7 +48,7 @@ function showIntro() {
 
 function handlePosts(baseElement) {
   var categories = baseElement.querySelector('.categories'); // var n
-  var categoriesTitle = baseElement.querySelector('.categories-title'); // var t
+  var categoriesTitle = baseElement.querySelector('.post-header'); // var t
   var post = Array.from(baseElement.querySelectorAll('.post'));
   categoriesTitle &&
     categoriesTitle.addEventListener('click', () => {
