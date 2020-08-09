@@ -11341,12 +11341,15 @@ document.addEventListener('keypress', function (ev) {
   passive: false,
   capture: true
 });
-updateInvertedLabel(); // $('#circle').on('click', function() {
-//   document.documentElement.classList.toggle('inverted')
-//   $('#circle').toggleClass('special');
-//   $('.slider').toggleClass('sliderActive');
-//   updateInvertedLabel();
-// });
+updateInvertedLabel(); // var $filterMenu = $('.categories-mobile')
+// var $filterMenuContent = $('.categories-pills-mobile')
+// $filterMenu.click(function () {
+//   $filterMenuContent.slideToggle('medium', function () {
+//     if ($filterMenuContent.is(':visible')) {
+//       $filterMenuContent.css('display', 'flex')
+//     } else { $filterMenuContent.css('display', 'none') }
+//   })
+// })
 
 var $window = $(window);
 var $mobileNav = $('#mobile-nav');
@@ -14112,7 +14115,7 @@ $(".work-images").each(function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \";\".\n    ╷\n147 │   padding-top: 20px padding-bottom: calc(var(--lineHeight) * 2);\n    │                                   ^\n    ╵\n  src/scss/base/_work.scss 147:35  @import\n  /Users/shady/Desktop/FFFCorp.github.io/src/scss/index.scss 10:3                       root stylesheet\n    at /Users/shady/Desktop/FFFCorp.github.io/node_modules/webpack/lib/NormalModule.js:316:20\n    at /Users/shady/Desktop/FFFCorp.github.io/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Users/shady/Desktop/FFFCorp.github.io/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at context.callback (/Users/shady/Desktop/FFFCorp.github.io/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at /Users/shady/Desktop/FFFCorp.github.io/node_modules/sass-loader/dist/index.js:73:7\n    at Function.call$2 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:88191:16)\n    at _render_closure1.call$2 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:77610:12)\n    at _RootZone.runBinary$3$3 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:26152:18)\n    at _RootZone.runBinary$3 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:26156:19)\n    at _FutureListener.handleError$1 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24600:19)\n    at _Future__propagateToListeners_handleError.call$0 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24897:40)\n    at Object._Future__propagateToListeners (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:4311:88)\n    at _Future._completeError$2 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24725:9)\n    at _AsyncAwaitCompleter.completeError$2 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24117:12)\n    at Object._asyncRethrow (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:4065:17)\n    at /Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:14087:20\n    at _wrapJsFunctionForAsync_closure.$protected (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:4090:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24138:12)\n    at _awaitOnObject_closure0.call$2 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24130:25)\n    at _RootZone.runBinary$3$3 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:26152:18)\n    at _RootZone.runBinary$3 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:26156:19)\n    at _FutureListener.handleError$1 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24600:19)\n    at _Future__propagateToListeners_handleError.call$0 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24897:40)\n    at Object._Future__propagateToListeners (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:4311:88)\n    at _Future._completeError$2 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24725:9)\n    at _AsyncAwaitCompleter.completeError$2 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24117:12)\n    at Object._asyncRethrow (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:4065:17)\n    at /Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:16672:20\n    at _wrapJsFunctionForAsync_closure.$protected (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:4090:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24138:12)\n    at _awaitOnObject_closure0.call$2 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24130:25)\n    at _RootZone.runBinary$3$3 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:26152:18)\n    at _RootZone.runBinary$3 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:26156:19)\n    at _FutureListener.handleError$1 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24600:19)\n    at _Future__propagateToListeners_handleError.call$0 (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:24897:40)\n    at Object._Future__propagateToListeners (/Users/shady/Desktop/FFFCorp.github.io/node_modules/sass/sass.dart.js:4311:88)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 

@@ -48,14 +48,17 @@ function showIntro() {
 
 function handlePosts(baseElement) {
   var categories = baseElement.querySelector('.categories'); // var n
-  var categoriesTitle = baseElement.querySelector('.post-header'); // var t
+  var categoriesTitle = baseElement.querySelector('.categories-title'); // var t
   var post = Array.from(baseElement.querySelectorAll('.post'));
   categoriesTitle &&
     categoriesTitle.addEventListener('click', () => {
-      categoriesTitle.parentElement.parentElement.classList.toggle(
+      categoriesTitle.nextElementSibling.classList.toggle(
         'active-filters'
       ),
-        categoriesTitle.parentElement.parentElement.classList.contains(
+      categoriesTitle.children[1].classList.toggle(
+        'active-filters'
+      ),
+        categoriesTitle.nextElementSibling.classList.contains(
           'active-filters'
         ) || categoriesTitle.nextElementSibling.children[0].children[0].click();
     }),

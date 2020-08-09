@@ -308,7 +308,7 @@ img.cover {
 } */
 /* list */
 li {
-  margin-left: .2em;
+  margin-left: 1em;
   margin-bottom: var(--baseline);
 }
 li>p+ul,
@@ -869,7 +869,7 @@ footer {
   .navLang {
     display: none;
   }
-  nav:not(#mobile-nav):not(.categories) {
+  nav:not(#mobile-nav):not(.categories):not(.categories-mobile) {
     display: none !important;
   }
   header:not(.post-header) {

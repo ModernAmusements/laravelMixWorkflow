@@ -157,12 +157,16 @@ document.addEventListener(
 
 updateInvertedLabel()
 
-// $('#circle').on('click', function() {
-//   document.documentElement.classList.toggle('inverted')
-//   $('#circle').toggleClass('special');
-//   $('.slider').toggleClass('sliderActive');
-//   updateInvertedLabel();
-// });
+// var $filterMenu = $('.categories-mobile')
+// var $filterMenuContent = $('.categories-pills-mobile')
+
+// $filterMenu.click(function () {
+//   $filterMenuContent.slideToggle('medium', function () {
+//     if ($filterMenuContent.is(':visible')) {
+//       $filterMenuContent.css('display', 'flex')
+//     } else { $filterMenuContent.css('display', 'none') }
+//   })
+// })
 
 var $window = $(window)
 var $mobileNav = $('#mobile-nav')
@@ -180,7 +184,6 @@ $bugerMenu.click(function () {
 $window.resize(function () {
   if ($window.width() > 1050) { $mobileNav.slideUp('medium') }
 })
-
 
 $window.resize(function () {
   if ($window.width() > 1050) { $bugerMenu.removeClass('open') }

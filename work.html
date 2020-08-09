@@ -74,7 +74,12 @@
     <div class="barba-container one left" data-namespace="index-page">
       <main id="index">
         <nav class="categories">
-          <p class="medium">Filter</p>
+          <div class="categories-title">
+          <p class="medium">Filter:</p>
+          <svg viewBox="0 0 23 19" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11.5001 19L0.674805 0.25L22.3254 0.250002L11.5001 19Z"/>
+          </svg>
+        </div>
           <div class="categories-pills">
             <li class="category-li active">
               <button class="button category-button" data-slug="all">All</button></li>
@@ -88,6 +93,26 @@
             </li>
           </div>
         </nav>
+        <!-- <nav class="categories-mobile">
+          <div class="categories-title">
+            <p class="medium">Filter:</p>
+            <svg viewBox="0 0 23 19" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.5001 19L0.674805 0.25L22.3254 0.250002L11.5001 19Z"/>
+            </svg>
+          </div>
+          <div class="categories-pills">
+            <li class="category-li active">
+              <button class="button category-button" data-slug="all">All</button></li>
+            <li class="category-li"><button class="button category-button" data-slug="film">Film</button></li>
+            <li class="category-li"><button class="button category-button" data-slug="documentary">Documentary</button>
+            </li>
+            <li class="category-li"><button class="button category-button" data-slug="advertising">Advertising</button>
+            </li>
+            <li class="category-li"><button class="button category-button" data-slug="animation">Animation</button></li>
+            <li class="category-li"><button class="button category-button" data-slug="experiments">Experiments</button>
+            </li>
+          </div>
+        </nav> -->
         <article class="post" data-categories="experiments film all">
           <header class="post-header">
             <h1 class="post-title">Transhuman Design</h1>
@@ -186,8 +211,6 @@
             </article>
           </section>
         </article>
-
-
       </main>
     </div>
   </div>
