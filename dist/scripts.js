@@ -52,6 +52,9 @@ function handlePosts(baseElement) {
   var post = Array.from(baseElement.querySelectorAll('.post'));
   categoriesTitle &&
     categoriesTitle.addEventListener('click', () => {
+      categoriesTitle.classList.toggle(
+        'active-filters'
+      ),
       categoriesTitle.nextElementSibling.classList.toggle(
         'active-filters'
       ),
@@ -62,7 +65,7 @@ function handlePosts(baseElement) {
           'active-filters'
         ) || categoriesTitle.nextElementSibling.children[0].children[0].click();
     }),
-    document.fonts.load('1rem "Surt Semi Bold"').then(function () {
+    document.fonts.load('1rem "neue-haas-unica"').then(function () {
       post.forEach(function (baseElement, _categoriesTitle) {
         baseElement.children[0].children[0].offsetWidth >=
           baseElement.children[0].offsetWidth &&
