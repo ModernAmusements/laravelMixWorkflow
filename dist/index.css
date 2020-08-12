@@ -920,7 +920,7 @@ header:not(.post-header) {
   padding-top: calc(var(--lineHeight) * 1);
   border-bottom: 1px solid var(--foreground-color);
   background: var(--background-color);
-  z-index: 10;
+  z-index: 5;
 }
 
 header:not(.post-header) a:not(.home) {
