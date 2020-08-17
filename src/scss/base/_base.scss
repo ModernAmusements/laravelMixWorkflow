@@ -92,7 +92,6 @@ fieldset,
 figcaption,
 footer,
 form,
-grid,
 h1,
 h2,
 h3,
@@ -180,7 +179,6 @@ html {
   text-size-adjust: 100%;
   font-variant-ligatures: contextual common-ligatures;
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "cv10" 1;
-  /* G */
 }
 
 body {
@@ -191,6 +189,19 @@ body {
   padding-bottom: calc(var(--lineHeight) * 3);
   padding-top: var(--lineHeight);
   
+}
+
+html {
+  box-sizing: border-box
+}
+
+* {
+  box-sizing: border-box
+}
+
+*:before,
+*:after {
+  box-sizing: border-box
 }
 
 

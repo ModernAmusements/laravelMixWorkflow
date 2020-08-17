@@ -11240,7 +11240,9 @@ var aol = $.browser.aol(),
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {var inverted = localStorage.getItem('inverted');
+/* WEBPACK VAR INJECTION */(function($, module, jQuery) {function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+var inverted = localStorage.getItem('inverted');
 var invertedToggle = document.querySelector('#circle');
 var slider = document.querySelector('.sliderToggle');
 var userAgent = navigator.userAgent;
@@ -11373,8 +11375,115 @@ $window.resize(function () {
   if ($window.width() > 1050) {
     $bugerMenu.removeClass('open');
   }
+}); // jshint ignore: start
+
+/* eslint-disable */
+// Modal 
+
+!function (o) {
+  ( false ? undefined : _typeof(module)) == 'object' && _typeof(module.exports) == 'object' ? o(__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), window, document) : o(jQuery, window, document);
+}(function (o, e, l, t) {
+  var s = [];
+
+  var getCurrent = function getCurrent() {
+    return s.length ? s[s.length - 1] : null;
+  };
+
+  var selectCurrent = function selectCurrent() {
+    var o;
+    var e = !1;
+
+    for (o = s.length - 1; o >= 0; o--) {
+      s[o].$blocker && (s[o].$blocker.toggleClass('current', !e).toggleClass('behind', e), e = !0);
+    }
+  };
+
+  o.modal = function (e, l) {
+    var t;
+
+    if (this.$parent = o('body'), this.$container = o('.modal-wrapper'), this.options = o.extend({}, o.modal.defaults, l), this.$blocker = null, this.options.closeExisting) {
+      for (; o.modal.isActive();) {
+        o.modal.close();
+      }
+    }
+
+    if (e.is('a')) {
+      if (t = e.attr('href'), this.anchor = e, this.$elm = o(t), this.$elm.length !== 1) {
+        return null;
+      }
+
+      this.$elm.css('--duration', this.options.duration + 'ms'), this.open();
+    } else this.$elm = e, this.anchor = e;
+
+    this.options.show && (this.$elm.css('--duration', this.options.duration + 'ms'), this.open());
+  }, o.modal.prototype = {
+    constructor: o.modal,
+    open: function open() {
+      s.push(this);
+      var e = this;
+      e.block(), e.anchor.blur(), e.show(), o(l).off('keydown.modal').on('keydown.modal', function (o) {
+        var e = getCurrent();
+        o.which === 27 && e.options.escapeClose && e.close();
+      }), e.options.clickClose && e.$blocker.click(function (e) {
+        e.target === this && o.modal.close();
+      });
+    },
+    close: function close() {
+      s.pop(), this.unblock(), this.hide(), o.modal.isActive() || o(l).off('keydown.modal');
+    },
+    block: function block() {
+      var e = this;
+      e.$parent.addClass('modal-show'), e.$blocker = o('<div class="' + e.options.blockerClass + ' current"></div>').appendTo(e.$parent).css('--duration', e.options.durationOverlay + 'ms'), setTimeout(function () {
+        e.$blocker.addClass('show'), selectCurrent();
+      });
+    },
+    unblock: function unblock(e) {
+      this.$blocker.children().appendTo(this.$parent), this.$blocker.remove(), this.$blocker = null, selectCurrent(), o.modal.isActive() || this.$parent.removeClass('modal-show');
+    },
+    show: function show() {
+      var o = this;
+      o.$elm.addClass(o.options.modalClass).appendTo(o.$blocker), setTimeout(function () {
+        o.$elm.addClass('show'), o.$elm.trigger('modal:open', [o.$elm]);
+      }, o.options.durationOverlay);
+    },
+    hide: function hide() {
+      var o = this;
+      o.$elm.removeClass('show'), o.$elm.trigger('modal:before:close', [o.$elm]), setTimeout(function () {
+        o.$elm.appendTo(o.$container), o.$elm.trigger('modal:close', [o.$elm]);
+      }, o.options.duration);
+    },
+    _ctx: function _ctx() {
+      return {
+        elm: this.$elm,
+        $elm: this.$elm,
+        $blocker: this.$blocker,
+        options: this.options
+      };
+    }
+  }, o.modal.close = function (e) {
+    if (o.modal.isActive()) {
+      e && e.preventDefault();
+      var l = getCurrent();
+      return l.close(), l.$elm;
+    }
+  }, o.modal.isActive = function () {
+    return s.length > 0;
+  }, o.modal.getCurrent = getCurrent, o.modal.defaults = {
+    closeExisting: !1,
+    escapeClose: !0,
+    clickClose: !0,
+    modalClass: 'modal',
+    blockerClass: 'overlay',
+    show: !1,
+    duration: 200,
+    durationOverlay: 100
+  }, o.fn.modal = function (e) {
+    return this.length === 1 && new o.modal(this, e), this;
+  }, o(l).on('click.modal', 'a[rel~="modal:close"]', o.modal.close), o(l).on('click.modal', 'a[rel~="modal:open"]', function (e) {
+    e.preventDefault(), o(this).modal();
+  });
 });
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! ./../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module), __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 

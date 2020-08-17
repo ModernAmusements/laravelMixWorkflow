@@ -1,3 +1,7 @@
+
+// jshint ignore: start
+/* eslint-disable */
+
 let mix = require('laravel-mix');
 const webpack = require('webpack');
 

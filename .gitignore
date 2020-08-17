@@ -41,3 +41,18 @@ Temporary Items
 .apdisk
 
 
+
+.DS_Store
+
+node_modules/
+dist/
+build/
+coverage/
+docs/bindery_local_build.js
+
+*.sketch
+*.map
+*.log
+
+.eslintcache
+stats.json
