@@ -2280,3 +2280,10 @@ var _slice = Array.prototype.slice,
     check: "Wählen Sie zwischen %s und %s Angaben.",
     equalto: "Dieses Feld muss dem anderen entsprechen."
 }), $("body").hasClass("expatGuideUebersicht") || $("body").hasClass("expats") || $("#knowledge-search").hasClass("enSearch") ? Parsley.setLocale("en") : Parsley.setLocale("de");
+
+
+
+
+
+
+

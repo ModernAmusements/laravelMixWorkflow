@@ -25,7 +25,7 @@
   <link rel="shortcut icon" type="image/png" href="/images/favicon.ico" />
   <link rel="stylesheet" href="dist/index.css" />
   <meta name="theme-color" content="#fafafa" />
-  <script class="staticscript" type="text/javascript" src="/dist/jquery.js"></script>
+  <script type="text/javascript" src="/dist/jquery.js"></script>
 </head>
 <body>
   <header>
@@ -356,6 +356,5 @@
   </footer>
   <script type="text/javascript" src="/dist/main.js"></script> 
   <script type="text/javascript" src="/dist/libs.js"></script>
-  <script type="text/javascript" src="/dist/scripts.js"></script> 
 </body>
 </html>

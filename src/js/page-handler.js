@@ -27,10 +27,10 @@ document.documentElement.style.setProperty('--vh', viewHeight + 'px'),
       document.documentElement.style.setProperty('--vh', viewHeight + 'px');
   });
 
-var userAgent = window.navigator.userAgent;
-var iOS = !!userAgent.match(/iPad/i) || !!userAgent.match(/iPhone/i);
-var webkit = !!userAgent.match(/WebKit/i);
-var iOSSafari = iOS && webkit && !userAgent.match(/CriOS/i);
+var ua = window.navigator.ua;
+var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+var webkit = !!ua.match(/WebKit/i);
+var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
 
 function showIntro() {
   introFlag == 1
