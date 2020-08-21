@@ -127,26 +127,26 @@ function toggleInvertedMode () {
 
 bindTapableOption('inverted', toggleInvertedMode)
 
-function handleKeyPress (key) {
-  switch (key) {
-    case 'i':
-    case 'I':
-      toggleInvertedMode()
-      return true
-  }
-  return false
-}
+// function handleKeyPress (key) {
+//   switch (key) {
+//     case 'i':
+//     case 'I':
+//       toggleInvertedMode()
+//       return true
+//   }
+//   return false
+// }
 
-document.addEventListener(
-  'keypress',
-  (ev) => {
-    if (!ev.metaKey && !ev.ctrlKey && !ev.altKey && handleKeyPress(ev.key)) {
-      ev.preventDefault()
-      ev.stopPropagation()
-    }
-  },
-  { passive: false, capture: true }
-)
+// document.addEventListener(
+//   'keypress',
+//   (ev) => {
+//     if (!ev.metaKey && !ev.ctrlKey && !ev.altKey && handleKeyPress(ev.key)) {
+//       ev.preventDefault()
+//       ev.stopPropagation()
+//     }
+//   },
+//   { passive: false, capture: true }
+// )
 
 updateInvertedLabel()
 

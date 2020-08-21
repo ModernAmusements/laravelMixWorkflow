@@ -167,6 +167,8 @@
   --foreground-color: rgba( var(--foreground-color-rgb));
   --background-color: #F2F2EC;
   --primary-color: #FF4D00;
+  --error-form: #f91153;
+  --active-form-visited: #2afc85;
   --trackBg: #bdbdbd;
   --trackFocus: #cacaca;
   --thumbBg: #666;
@@ -2154,7 +2156,7 @@ p {
   padding: var(--padding);
   border: 1px solid var(--border-color);
   color: var(--foreground-color);
-  /* background: var(--background-color); */
+  background: var(--background-color);
   transition: border 0.3s ease, color 0.3s ease, background 0.3s ease;
   width: 100%;
 }
@@ -2169,27 +2171,31 @@ p {
 }
 
 .form-field:hover {
-  --border-color: var(--primary);
+  border-color: var(--primary-color);
 }
 
 .form-field:focus {
-  --border-color: var(--primary);
+  border-color: var(--active-form-visited);
+}
+
+.form-field:active {
+  border-color: var(--active-form-visited);
 }
 
 .form-field::-moz-placeholder {
-  color: var(--text-light);
+  color: var(--background-color);
 }
 
 .form-field:-ms-input-placeholder {
-  color: var(--text-light);
+  color: var(--background-color);
 }
 
 .form-field::-ms-input-placeholder {
-  color: var(--text-light);
+  color: var(--background-color);
 }
 
 .form-field::placeholder {
-  color: var(--text-light);
+  color: var(--background-color);
 }
 
 .form-field:disabled {
@@ -2198,23 +2204,23 @@ p {
 }
 
 .form-field:disabled::-moz-placeholder {
-  color: var(--text-lighter);
+  color: var(--background-color);
 }
 
 .form-field:disabled:-ms-input-placeholder {
-  color: var(--text-lighter);
+  color: var(--background-color);
 }
 
 .form-field:disabled::-ms-input-placeholder {
-  color: var(--text-lighter);
+  color: var(--background-color);
 }
 
 .form-field:disabled::placeholder {
-  color: var(--text-lighter);
+  color: var(--background-color);
 }
 
 .form-field.error {
-  --border-color: var(--error);
+  border-color: var(--primary-color);
 }
 
 .form-field.sm {
@@ -2339,7 +2345,7 @@ p {
   padding: var(--padding);
   border: 1px solid var(--foreground-color);
   color: var(--foreground-color);
-  /* background: var(--background-color); */
+  background: var(--background-color);
   transition: border 0.3s ease, color 0.3s ease, background 0.3s ease;
   padding-right: 34px;
   width: 100%;
@@ -2454,14 +2460,10 @@ p {
   font-size: 1.2rem;
   font-weight: 500;
   margin-left: 0.5em;
+  background: var(--background);
 }
 
 .btn-1 {
-  --color: #fff;
-  --background: var(--primary);
-  --shadowPos: 2px;
-  --shadowBlur: 4px;
-  --y: 0;
   text-transform: uppercase;
   display: inline-block;
   text-align: center;
@@ -2476,10 +2478,10 @@ p {
   font-weight: 600;
   min-width: 120px;
   border-radius: 99em;
-  transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+  transition: color 0.3s ease, background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
   transform: translateY(var(--y)) translateZ(0);
-  background: var(--background);
-  color: var(--color);
+  background: var(--primary-color);
+  color: var(--background-color);
 }
 
 .btn:link,
@@ -2490,27 +2492,15 @@ p {
 }
 
 .btn:hover {
-  --y: -1px;
-  --shadowPos: 4px;
-  --shadowBlur: 8px;
-  color: var(--color);
+  color: var(--background-color);
+  background-color: var(--foreground-color);
+  border: 1px solid var(--foreground-color);
 }
 
 .btn:active {
   --y: 1px;
   --shadowPos: 1px;
   --shadowBlur: 3px;
-}
-
-.btn.white {
-  background: var(--background-color);
-  color: var(--foreground-color);
-}
-
-.btn.white.outline {
-  --color: #fff;
-  --outline: #fff;
-  --background: none;
 }
 
 .btn.link {
@@ -2555,13 +2545,11 @@ p {
   display: none !important;
 }
 
-/* Change the white to any color ;) */
-
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  -webkit-box-shadow: 0 0 0 30px var(--background-color) inset !important;
 }
 
 .overlay {
@@ -2738,7 +2726,7 @@ input:-webkit-autofill:active {
   }
 
   #fffModal .form form .birthday,
-  #fffModal .form form .employee {
+  #fffModal .form form .reason {
     grid-row: 3;
   }
 
@@ -2887,7 +2875,7 @@ input:-webkit-autofill:active {
   position: absolute;
   left: 0;
   z-index: 3;
-  color: var(--red);
+  color: var(--error-form);
   font-size: 12px;
   padding: 0;
   list-style: none;
@@ -2914,7 +2902,12 @@ input:-webkit-autofill:active {
 
 .form-field.parsley-error,
 .form-select select.parsley-error {
-  --border-color: var(--red);
+  border-color: var(--error-form);
+}
+
+.form-field.parsley-success,
+.form-select select.parsley-succes {
+  border-color: var(--active-form-visited);
 }
 
 .form-field.parsley-error + .parsley-errors-list,
@@ -3004,12 +2997,13 @@ input[type=range]::-moz-range-thumb {
   box-shadow: 0 2px 4px 0 var(--shadow-dark);
 }
 
-/* [data-parsley-validate] [type='submit'] {
-    opacity: 0.5
+[data-parsley-validate] [type=submit] {
+  opacity: 0.5;
 }
-[data-parsley-validate].valid [type='submit'] {
-    opacity: 1
-} */
+
+[data-parsley-validate].valid [type=submit] {
+  opacity: 1;
+}
 
 #fffModal {
   padding: 0;
@@ -3117,7 +3111,7 @@ input[type=range]::-moz-range-thumb {
   }
 
   #fffModal .form form .birthday,
-  #fffModal .form form .employee {
+  #fffModal .form form .reason {
     grid-row: 3;
   }
 
