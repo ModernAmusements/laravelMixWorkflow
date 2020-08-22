@@ -21,6 +21,7 @@ const css = `
 
       --background-color: #111;
       --foreground-color-rgb: 255,254,245;
+      --background-color-dark: #000;
 
       --foreground-color-a: 0.8;
       --base-grid-color1: rgba(240,155,255, 0.1);

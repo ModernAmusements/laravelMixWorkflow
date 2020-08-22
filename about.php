@@ -106,9 +106,9 @@
     ?>
         <div id="confirmModal" class="modal show">
             <img src="/2019/img/skeumins/letter.svg" alt="">
-            <span class="h4">Vielen Dank!</span>
+            <h4>Vielen Dank!</h4>
             <p>Deine E-Mail-Adresse wurde<br>erfolgreich bestätigt.</p>
-            <a href="" rel="modal:close" class="btn center noTrack">Fenster schließen</a>
+            <a href="about.php" rel="modal:close" class="btn center">Fenster schließen</a>
         </div>
         </div>
         <?php
@@ -116,9 +116,11 @@
     ?>
         <div class="modal-wrapper">
             <div id="fffModal" class="modal">
-                <a href="" class="close noTrack" rel="modal:close"></a>
+                <a href="" class="close" rel="modal:close"></a>
+                <div class="list">
+                </div>
                 <div class="form-img">
-                <img src="content/img/fff-c-ancient-1.png" />
+                <img src="content/img/fff-c-modal.png" />
               </div>
                 <div class="form">
                     <form action="about.php" method="POST" data-consultation="sales" data-parsley-validate>
@@ -177,16 +179,18 @@
                         </button>
                     </form>
                 </div>
-                <div class="list">
-                </div>
             </div>
             <div id="disclaimerModal" class="modal">
-                <a href="" class="close noTrack" rel="modal:close"></a>
-                <span class="h4 noTop">Einwilligungserklärung</span>
-                <p>Mit der Eingabe deiner Daten erklärst du dich damit einverstanden, dass wir dich per Telefon und
-                    E-Mail
-                    kontaktieren dürfen.</p>
-                <a href="" rel="modal:close" class="btn link center noTrack">Close</a>
+                <a href="" class="close" rel="modal:close"></a>
+                <h4>Einwilligungserklärung</h4>
+                <p>Mit der Eingabe deiner Daten erklärst du dich damit einverstanden,
+                    dass wir dich per Telefon und E-Mailkontaktieren dürfen.
+                    <br>
+                    Wir geben deine Daten nicht an Dritte weiter. Wir verwenden deine Daten ausschließlich zur Kontaktaufnahme verwenden.
+                    Du kannst der Kontaktaufnahme jederzeit widersprechen. Am besten per Mail an info@fffcorp.de.
+                    Weitere Informationen zum Datenschutz findest du in unserer Datenschutzerklärung.       
+                </p>
+                <a href="" rel="modal:close" class="btn">Close</a>
             </div>
         </div>
         <?php

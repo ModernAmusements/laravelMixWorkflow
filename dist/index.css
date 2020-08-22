@@ -2141,10 +2141,14 @@ p {
   margin: 0 0 20px 0;
 }
 
+.form-img {
+  z-index: -1;
+}
+
 .form-img img {
   width: 100%;
-  height: auto;
-  border-radius: 0 8px 0 0;
+  display: block;
+  border-radius: 0 5px 5px 0;
 }
 
 textarea {
@@ -2524,29 +2528,13 @@ textarea:hover,
 .btn:active,
 .btn:visited,
 .btn:focus {
-  color: var(--color);
+  color: var(--foreground-color);
 }
 
 .btn:hover {
   color: var(--background-color);
   background-color: var(--foreground-color);
   border: 1px solid var(--foreground-color);
-}
-
-.btn:active {
-  --y: 1px;
-  --shadowPos: 1px;
-  --shadowBlur: 3px;
-}
-
-.btn.link {
-  --background: none;
-  --color: var(--primary);
-  box-shadow: none;
-}
-
-.btn.link.noPadding {
-  padding: 0;
 }
 
 .btn.sm {
@@ -2560,6 +2548,7 @@ textarea:hover,
   display: table;
   margin-left: auto;
   margin-right: auto;
+  width: 12rem;
 }
 
 .alert {
@@ -2584,8 +2573,15 @@ textarea:hover,
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 30px var(--background-color) inset !important;
+  -webkit-text-fill-color: var(--foreground-color);
 }
 
 .overlay {
@@ -2688,7 +2684,7 @@ input:-webkit-autofill:active {
 }
 
 .modal .close:hover {
-  background: var(--close-bg-hover);
+  background: var(--primary-color);
 }
 
 .modal-wrapper {
