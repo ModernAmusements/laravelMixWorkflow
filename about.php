@@ -3,14 +3,18 @@
     if(isset($_POST['email']) && $_POST['email'] != '') {
         if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             $userName = $_POST['firstName'];
+            $userLastName = $_POST['lastName'];
             $userEmail = $_POST['email'];
-            $userSubject = $_POST['employment'];
-            $userMessage = $_POST['interest'];
-            $to = "st@zahnarzt-heldeen.de"; // wrong!
+            $userPhone = $_POST['phoneNumber'];
+            $userSubject = $_POST['subject'];
+            $userMessage = $_POST['comments'];
+            $to = "st@zahnardzt-helden.de"; // wrong!
             $body = "";
-            $body .= "Form: ".$userName. "\r\n"; 
+            $body .= "Name: ".$userName. "\r\n";
+            $body .= "Nachname: ".$userLastName. "\r\n";  
             $body .= "Email: ".$userEmail. "\r\n"; 
-            $body .= "Message: ".$userMessage. "\r\n"; 
+            $body .= "Telefonnummer: ".$userPhone. "\r\n"; 
+            $body .= "Nachricht: ".$userMessage. "\r\n"; 
             mail($to,$userSubject, $body);
             $message_sent = true;
         }
@@ -113,10 +117,9 @@
         <div class="modal-wrapper">
             <div id="fffModal" class="modal">
                 <a href="" class="close noTrack" rel="modal:close"></a>
-                <div class="person">
-                    <picture>
-                    </picture>
-                </div>
+                <div class="form-img">
+                <img src="content/img/fff-c-ancient-1.png" />
+              </div>
                 <div class="form">
                     <form action="about.php" method="POST" data-consultation="sales" data-parsley-validate>
                         <div class="form-parsley firstname">
@@ -150,28 +153,19 @@
                         <div class="form-parsley reason">
                             <label>Grund*</label>
                             <div class="form-select">
-                                <select name="employment">
+                                <select name="subject">
                                     <option value="">Bitte wählen...</option>
-                                    <option value="employed">Film</option>
-                                    <option value="self-employed">Documentary</option>
-                                    <option value="civil-servant">Motion</option>
-                                    <option value="student">Animation</option>
+                                    <option value="Auftrag: Film">Film</option>
+                                    <option value="Auftrag: Typografie">Typografie</option>
+                                    <option value="Auftrag: Motion">Motion</option>
+                                    <option value="Auftrag: Animation">Animation</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-parsley interest">
-                            <div class="form-select">
-                                <select name="interest" class="interestSelect">
-                                    <option value="general" data-tracking="all.all">Typography</option>
-                                    <option value="comprehensive" data-tracking="comprehensive.all">Graphic Design
-                                    </option>
-                                    <option value="civil-servant" data-tracking="civil-servant.all">Documentary
-                                    </option>
-                                    <option value="dental" data-tracking="dental.zahn-premium">Motion
-                                    </option>
-                                    <option value="clinic" data-tracking="hospital.all">Film
-                                    </option>
-                                </select>
+                        <label>Ich interessiere mich für*</label>
+                            <div class="form-parsley">
+                            <p><textarea cols="25" wrap="physical" id="msg" name="comments"></textarea></p>
                             </div>
                         </div>
                         <small>Mit dem Abschicken meiner Daten erkläre ich meine
@@ -179,7 +173,7 @@
                             Tawfik.
                         </small>
                         <button class="btn-1 consultation-modal" value="validate" type="submit">
-                            Termin vereinbaren
+                            HIT ME UP
                         </button>
                     </form>
                 </div>
@@ -363,7 +357,7 @@
 
     </script>
     <script type="text/javascript" src="/dist/form-validate.js"></script>
-    <script type="text/javascript" src="/dist/mask.js"></script>
+    <script type="text/javascript" src="/dist/mask.js"></script> 
     <script type="text/javascript" src="/dist/main.js"></script>
     <script type="text/javascript" src="/dist/libs.js"></script>
 </body>
