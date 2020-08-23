@@ -9,11 +9,11 @@ mix.autoload({
 mix.js([
     'src/js/swiper.min.js',
     'src/js/main.js',
-    'src/js/page-handler.js',
     'src/js/plugins.js',
     'src/js/current-device.min.js',
+    'src/js/form-validate.js',
     ], 'public/js/main.js');
     
 mix.sass('src/scss/index.scss', 'public/css');
 
-// mix.browserSync('http://fff-corp-2020.ma');
+mix.browserSync('http://fff-corp-2020.ma');

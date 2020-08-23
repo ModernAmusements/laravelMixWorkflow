@@ -322,19 +322,17 @@ html {
     vertical-align: middle;
     touch-action: manipulation;
     white-space: nowrap;
-    min-width: 120px;
+    min-width: 15rem;
     border: solid 1px var(--foreground-color);
-    width: 6rem;
-    position: relative;
     border-radius: 99em;
     display: inline-block;
     text-align: center;
     padding: 0.2rem 0;
     font-size: 1.2rem;
     font-weight: 500;
-    margin-left: 0.5em;
     background: var(--background);
   }
+
   .btn-1 {
     text-transform: uppercase;
     display: inline-block;
@@ -363,9 +361,8 @@ html {
     color: var(--foreground-color);
   }
   .btn:hover {
-    color: var(--background-color);
-    background-color: var(--foreground-color);
-    border: 1px solid var(--foreground-color);
+    color: var(--foreground-color);
+    background-color: var(--primary-color);
   }
   .btn:active {
 

@@ -1,3 +1,4 @@
+// DarkMode
 
 let inverted = localStorage.getItem('inverted')
 const invertedToggle = document.querySelector('#circle')
@@ -346,7 +347,7 @@ var lightboxWidth = 0.8;
 var isTouch = 'ontouchstart' in window || navigator.msMaxTouchPoints > 0;
 isTouch = 'ontouchstart' in window || 0 < navigator.msMaxTouchPoints;
 isTouch
-  ? (console.log('touch'),
+  ? (console.log('Touch-Device!'),
     document.body.classList.add('touch-device'),
     (lightboxWidth = 1))
   : document.body.classList.add('not-touch-device');
