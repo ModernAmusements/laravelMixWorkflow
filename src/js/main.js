@@ -20,7 +20,7 @@ const css = `
       --foreground-color-rgb: 255,255,255;*/
 
       --background-color: #111;
-      --foreground-color-rgb: 255,254,245;
+      --foreground-color-rgb: 242,240,236;
       --background-color-dark: #000;
 
       --foreground-color-a: 0.8;

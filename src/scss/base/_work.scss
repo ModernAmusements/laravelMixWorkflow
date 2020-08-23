@@ -125,7 +125,6 @@ nav.categories {
   display: grid;
   grid-column-gap: 10px;
   align-items: center;
-  grid-row-gap: var(--rowGap);
   grid-template-columns: repeat(8, 1fr);
   overflow: hidden;
   height: 5em;
@@ -610,8 +609,21 @@ nav.categories-mobile {
 
 @media (min-width: 320px) and (max-width: 1150px) {
   .post-header {
+    height: 3rem;
     grid-column-gap: 10px;
     grid-template-columns: repeat(3, 1fr) 0.5fr;
+    .post-title{
+      font-size: 1.5rem;
+    }
+    svg {
+      width: 1.5rem;
+    }
+  }
+
+  .post {
+    
+    height: 3rem;
+    
   }
 
   h1.postHeading {
