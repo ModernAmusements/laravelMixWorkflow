@@ -11233,6 +11233,95 @@ var aol = $.browser.aol(),
 
 /***/ }),
 
+/***/ "./src/js/form-validate.js":
+/*!*********************************!*\
+  !*** ./src/js/form-validate.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {$(document).ready(function () {
+  $('form').each(function (t) {
+    var e = $(this),
+        a = e.parsley();
+    e.find('input, select').on('change keyup', function () {
+      e.toggleClass('valid', a.isValid());
+    });
+  }), $(':input').inputmask();
+  var e = new Date(),
+      a = ('0' + e.getDate()).slice(-2) + '.' + ('0' + (e.getMonth() + 1)).slice(-2) + '.' + e.getFullYear();
+  e.setFullYear(e.getFullYear() - 16);
+  var i = ('0' + e.getDate()).slice(-2) + '.' + ('0' + (e.getMonth() + 1)).slice(-2) + '.' + e.getFullYear();
+  e.setFullYear(e.getFullYear() - 84);
+  var n = ('0' + e.getDate()).slice(-2) + '.' + ('0' + (e.getMonth() + 1)).slice(-2) + '.' + e.getFullYear();
+  window.Parsley.addValidator('validDate', {
+    validateString: function validateString(t) {
+      return !t.match(/[a-z]/i);
+    },
+    messages: {
+      de: 'Kein gültiges Datum',
+      en: 'Invalid date'
+    }
+  }), window.Parsley.addValidator('fullAge', {
+    validateString: function validateString(t) {
+      return parseInt(t) >= 18;
+    },
+    messages: {
+      de: 'Du musst mindestens 18 Jahre alt sein.',
+      en: 'You have to be at least 18 years old.'
+    }
+  }), window.Parsley.addValidator('curDe', {
+    validateString: function validateString(t) {
+      return function validateCurDE(t) {
+        return parseFloat(t.replace(/\./g, '')) >= 62550;
+      }(t);
+    },
+    messages: {
+      de: 'Dein Gehalt ist leider zu niedrig, um dich privat zu versichern.'
+    }
+  }), $('.birthdayMask').inputmask({
+    alias: 'datetime',
+    inputFormat: 'dd.mm.yyyy',
+    placeholder: 'TT.MM.JJJJ',
+    outputFormat: 'yyyy-mm-dd',
+    autoUnmask: !0,
+    min: n,
+    max: a
+  }), $('.birthdayMask16').inputmask({
+    alias: 'datetime',
+    inputFormat: 'dd.mm.yyyy',
+    placeholder: 'TT.MM.JJJJ',
+    outputFormat: 'yyyy-mm-dd',
+    autoUnmask: !0,
+    min: n,
+    max: i
+  }), $('.birthdayMaskEn').inputmask({
+    alias: 'datetime',
+    inputFormat: 'dd.mm.yyyy',
+    placeholder: 'DD.MM.YYYY',
+    outputFormat: 'yyyy-mm-dd',
+    autoUnmask: !0,
+    min: n,
+    max: a
+  }), $('.dateMaskNow').inputmask({
+    alias: 'datetime',
+    inputFormat: 'dd.mm.yyyy',
+    placeholder: 'TT.MM.JJJJ',
+    outputFormat: 'yyyy-mm-dd',
+    autoUnmask: !0,
+    min: a
+  }), $('select').on('change', function (t) {
+    $(this).toggleClass('empty', '' === $(this).val());
+  }).trigger('change');
+  var s = {
+    modal: null,
+    phone: null
+  };
+});
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
 /***/ "./src/js/main.js":
 /*!************************!*\
   !*** ./src/js/main.js ***!
@@ -14713,15 +14802,16 @@ $(".work-images").each(function () {
 /***/ }),
 
 /***/ 0:
-/*!*******************************************************************************************************************************************************!*\
-  !*** multi ./src/js/swiper.min.js ./src/js/main.js ./src/js/page-handler.js ./src/js/plugins.js ./src/js/current-device.min.js ./src/scss/index.scss ***!
-  \*******************************************************************************************************************************************************/
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** multi ./src/js/swiper.min.js ./src/js/main.js ./src/js/page-handler.js ./src/js/form-validate.js ./src/js/plugins.js ./src/js/current-device.min.js ./src/scss/index.scss ***!
+  \*********************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/swiper.min.js */"./src/js/swiper.min.js");
 __webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/main.js */"./src/js/main.js");
 __webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/page-handler.js */"./src/js/page-handler.js");
+__webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/form-validate.js */"./src/js/form-validate.js");
 __webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/plugins.js */"./src/js/plugins.js");
 __webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/js/current-device.min.js */"./src/js/current-device.min.js");
 module.exports = __webpack_require__(/*! /Users/shady/Desktop/FFFCorp.github.io/src/scss/index.scss */"./src/scss/index.scss");

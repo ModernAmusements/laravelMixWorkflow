@@ -45,7 +45,7 @@ Temporary Items
 .DS_Store
 
 node_modules/
-dist/
+src/
 build/
 coverage/
 docs/bindery_local_build.js

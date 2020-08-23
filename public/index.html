@@ -7,69 +7,69 @@
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="shortcut icon" type="image/png" href="/images/favicon.ico" />
-  <link rel="stylesheet" href="dist/index.css" />
+  <link rel="stylesheet" href="css/index.css" />
   <meta name="theme-color" content="#fafafa" />
 </head>
 
 <body>
   <header>
     <a class="home">
-      <label class="switch">
-        <span class="sliderToggle">
-          <div id="circle"></div>
-        </span>
-      </label>
-      <h2>
-        <span id="inverted-msg">FFF</span>
-      </h2>
+        <label class="switch">
+            <span class="sliderToggle">
+                <div id="circle"></div>
+            </span>
+        </label>
+        <h2>
+            <span id="inverted-msg">FFF</span>
+        </h2>
     </a>
     <menu class="desktop-nav">
-      <nav>
-        <a href="/index.html">Home</a>
-        <a href="/work.html">Work</a>
-        <a href="">About</a>
-        <a href="">Kontakt</a>
-        <a href="">Blog</a>
-      </nav>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="/work.html">Work</a>
+            <a href="/public/about.php">About</a>
+            <a href="">Kontakt</a>
+            <a href="">Blog</a>
+        </nav>
     </menu>
     <div class="langToggle">
-      <a href="#" class="lang">
-        DE
-      </a>
-      <a href="#" class="lang">
-        EN
-      </a>
+        <a href="#" class="lang">
+            DE
+        </a>
+        <a href="#" class="lang">
+            EN
+        </a>
     </div>
     <menu class="mobile-display">
-      <span id="burger">
-        <svg viewBox="0 0 50 50">
-          <g>
-            <line class="burger-menu stroke-open" x1="49.5" y1="25" x2="0.5" y2="25" />
-            <line class="burger-menu stroke-open" x1="0.5" y1="25" x2="49.5" y2="25" />
-          </g>
-          <line class="burger-menu stroke-close" x1="0.5" y1="8.5" x2="49.5" y2="8.5" />
-          <line class="burger-menu stroke-close" x1="0.5" y1="41.5" x2="49.5" y2="41.5" />
-        </svg>
-      </span>
+        <span id="burger">
+            <svg viewBox="0 0 50 50">
+                <g>
+                    <line class="burger-menu stroke-open" x1="49.5" y1="25" x2="0.5" y2="25" />
+                    <line class="burger-menu stroke-open" x1="0.5" y1="25" x2="49.5" y2="25" />
+                </g>
+                <line class="burger-menu stroke-close" x1="0.5" y1="8.5" x2="49.5" y2="8.5" />
+                <line class="burger-menu stroke-close" x1="0.5" y1="41.5" x2="49.5" y2="41.5" />
+            </svg>
+        </span>
     </menu>
     <nav id="mobile-nav">
-      <div class="navGridMenu">
-        <a href="/index.html">Home</a>
-        <a href="/work.html">Work</a>
-        <a href="">About</a>
-        <a href="">Kontakt</a>
-        <a href="">Blog</a>
-        <div class="navLang">
-          <a href="#" class="lang">
-            DE
-          </a>
-          <a href="#" class="lang">
-            EN
-          </a>
+        <div class="navGridMenu">
+            <a href="/index.html">Home</a>
+            <a href="/work.html">Work</a>
+            <a href="/public/about.php">About</a>
+            <a href="">Kontakt</a>
+            <a href="">Blog</a>
+            <div class="navLang">
+                <a href="#" class="lang">
+                    DE
+                </a>
+                <a href="#" class="lang">
+                    EN
+                </a>
+            </div>
         </div>
-      </div>
     </nav>
-  </header>
+</header>
   <main>
     <article class="pageContent">
       <section class="homeSvg">
@@ -98,6 +98,17 @@
           <br>
           Visual Diary
         </h1>
+      </section>
+      <section class="cta">
+      <h3>Do You NEED A Visual Translator for you Project?</h3>
+      <svg width="402" height="42" viewBox="0 0 402 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M397 23.5002H0V18.5002H397V23.5002Z" />
+        <path d="M398.506 17.6775L401.335 20.5059L380.828 41.012L378 38.1836L398.506 17.6775Z" />
+        <path d="M401.335 20.5059L398.506 23.3345L378 2.82843L380.828 0L401.335 20.5059Z" />
+        </svg>
+        <a href="#fffModal" category="header-navigation" action="home" label="consultation-modal" rel="modal:open" class="btn consultation">
+          HIT ME UP
+        </a>
       </section>
     </article>
   </main>
@@ -212,7 +223,7 @@
       </article> 
     </section>
   </footer>
-  <script type="text/javascript" src="/dist/main.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
 </body>
 
 </html>

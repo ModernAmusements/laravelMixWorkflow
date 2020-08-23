@@ -1,3 +1,6 @@
+
+
+
 /* block */
 address,
 aside,
@@ -632,6 +635,28 @@ span {
   grid-area: 3 / 6 / 3 / 9;
   white-space: nowrap;
 }
+
+.cta {
+  border-top: 1px solid var(--foreground-color);
+  grid-area: 4 / 1 / 4 / 9;
+  display: flex;
+  white-space: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5em;
+  h3 {
+    font-size: 2vw;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  svg {
+    max-width: 20vw;
+    fill: var(--foreground-color);
+  }
+}
+
+
+
 // .divider {
 //   grid-area: 4 / 1 / 4 / 9;
 //   border-bottom: 1px solid var(--foreground-color);
@@ -931,6 +956,7 @@ footer {
     width: 100%;
     min-width: 11rem;
   }
+
 }
 @media only screen and (max-width: 720px) {
   header:not(.post-header) {
@@ -1012,4 +1038,15 @@ footer {
       border-bottom: 1px solid var(--foreground-color);
     }
   }
+
+  .cta {
+    h3{
+      font-size: inherit;
+      white-space: normal;
+    }
+    svg {
+      display: none;
+    }
+  }
+
 }

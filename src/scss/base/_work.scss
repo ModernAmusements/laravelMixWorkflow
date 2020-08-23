@@ -221,7 +221,7 @@ nav.categories {
     }
 
     hr {
-      margin-bottom: 0
+      // margin-bottom: 0
     }
   }
 }
@@ -651,6 +651,7 @@ nav.categories-mobile {
   }
   .categories-pills {
     grid-area: 1 / 1 / 1 / 5;
+    display: none;
   }
   .categories-pills li {
     opacity: 0;
@@ -718,9 +719,9 @@ nav.categories-mobile {
   .post-content {
     padding: calc(var(--lineHeight) * 1) 0;
     grid-template-columns: repeat(4, 1fr);
-  }
+  
 
-  .work-description {
+  .work-descriptsion {
     grid-area: 1 / 3 / 2 / 5;
   }
 
@@ -741,9 +742,11 @@ nav.categories-mobile {
       margin-bottom: calc(var(--lineHeight) - calc(var(--hrThickness) / 2));
     }
   }
+
+  }
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 1150px) {
     .post-header {
       .post-meta-information {
         display: none;
@@ -764,7 +767,7 @@ nav.categories-mobile {
   .post-content {
     padding: calc(var(--lineHeight) * 1) 0;
     grid-template-columns: repeat(2, 1fr);
-  }
+ 
 
   .work-subpage-link {
     grid-area: 3 / 1 / 3 / 2;
@@ -781,7 +784,9 @@ nav.categories-mobile {
 
   .work-images {
     grid-area: 1 / 1 / 1 / 3;
+    display: inline;
   }
+}
 }
 
 

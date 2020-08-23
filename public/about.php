@@ -8,7 +8,8 @@
             $userPhone = $_POST['phoneNumber'];
             $userSubject = $_POST['subject'];
             $userMessage = $_POST['comments'];
-            $to = "st@zahnardzt-helden.de"; // wrong!
+            
+            $to = "st@zahnarzt-helden.de"; // wrong!
             $body = "";
             $body .= "Name: ".$userName. "\r\n";
             $body .= "Nachname: ".$userLastName. "\r\n";  
@@ -28,9 +29,9 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="shortcut icon" type="image/png" href="/images/favicon.ico" />
-    <link rel="stylesheet" href="dist/index.css" />
+    <link rel="stylesheet" href="css/index.css" />
     <meta name="theme-color" content="#fafafa" />
-    <script type="text/javascript" src="/dist/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
 </head>
 
 <body>
@@ -49,7 +50,7 @@
             <nav>
                 <a href="/index.html">Home</a>
                 <a href="/work.html">Work</a>
-                <a href="/about.html">About</a>
+                <a href="/public/about.php">About</a>
                 <a href="">Kontakt</a>
                 <a href="">Blog</a>
             </nav>
@@ -78,7 +79,7 @@
             <div class="navGridMenu">
                 <a href="/index.html">Home</a>
                 <a href="/work.html">Work</a>
-                <a href="">About</a>
+                <a href="/public/about.php">About</a>
                 <a href="">Kontakt</a>
                 <a href="">Blog</a>
                 <div class="navLang">
@@ -108,7 +109,7 @@
             <img src="/2019/img/skeumins/letter.svg" alt="">
             <h4>Vielen Dank!</h4>
             <p>Deine E-Mail-Adresse wurde<br>erfolgreich bestätigt.</p>
-            <a href="about.php" rel="modal:close" class="btn center">Fenster schließen</a>
+            <a href="/public/about.php" rel="modal:close" class="btn center">Fenster schließen</a>
         </div>
         </div>
         <?php
@@ -123,7 +124,7 @@
                 <img src="content/img/fff-c-modal.png" />
               </div>
                 <div class="form">
-                    <form action="about.php" method="POST" data-consultation="sales" data-parsley-validate>
+                    <form action="/public/about.php" method="POST" data-consultation="sales" data-parsley-validate>
                         <div class="form-parsley firstname">
                             <label>Vorname*</label>
                             <input name="firstName" type="text" class="form-field" data-parsley-trigger="change"
@@ -358,12 +359,12 @@
                 }, 2000))
             }
         })();
+        
 
     </script>
-    <script type="text/javascript" src="/dist/form-validate.js"></script>
-    <script type="text/javascript" src="/dist/mask.js"></script> 
-    <script type="text/javascript" src="/dist/main.js"></script>
-    <script type="text/javascript" src="/dist/libs.js"></script>
+    <script type="text/javascript" src="/js/form-validate.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/libs.js"></script>
 </body>
 
 </html>

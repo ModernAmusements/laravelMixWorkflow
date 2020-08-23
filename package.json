@@ -1,8 +1,8 @@
 {
   "name": "FFFCorp.github.io",
+  "private": true,
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Portfolio Florian Nagel",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm run development",
@@ -14,9 +14,11 @@
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Shady Tawfik 2020",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.26.12",
+    "browser-sync-webpack-plugin": "^2.0.1",
     "cross-env": "^7.0.2",
     "laravel-mix": "^5.0.4",
     "postcss-css-variables": "^0.17.0",

@@ -429,13 +429,14 @@ html {
     align-items: center;
     transition: background var(--duration) ease;
     background: var(--overlay);
+
   }
   @media (max-width: 575px) {
     .overlay {
       padding: 16px;
     }
   }
-  /*------------------------------------------------*/
+
   .overlay.show {
     background: var(--overlay);
   }
