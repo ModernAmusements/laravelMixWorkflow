@@ -50,9 +50,9 @@
     </a>
     <menu class="desktop-nav">
         <nav>
-            <a href="/public/index.php">Home</a>
+            <a href="/index.php">Home</a>
             <a href="/work.html">Work</a>
-            <a href="/public/about.php">About</a>
+            <a href="/about.php">About</a>
             <a href="">Kontakt</a>
             <a href="">Blog</a>
         </nav>
