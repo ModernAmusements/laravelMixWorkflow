@@ -9,7 +9,7 @@
   <link rel="shortcut icon" type="image/png" href="/images/favicon.ico" />
   <link rel="stylesheet" href="css/index.css" />
   <meta name="theme-color" content="#fafafa" />
-  <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src='/js/jquery.js'></script>
 </head>
 
 <body>
@@ -26,9 +26,9 @@
     </a>
     <menu class="desktop-nav">
         <nav>
-            <a href="/index.index">Home</a>
+            <a href="/public/index.php">Home</a>
             <a href="/work.html">Work</a>
-            <a href="">About</a>
+            <a href="/public/about.php">About</a>
             <a href="">Kontakt</a>
             <a href="">Blog</a>
         </nav>
@@ -55,9 +55,9 @@
     </menu>
     <nav id="mobile-nav">
         <div class="navGridMenu">
-            <a href="/index.index">Home</a>
+            <a href="/public/index.php">Home</a>
             <a href="/work.html">Work</a>
-            <a href="">About</a>
+            <a href="/public/about.php">About</a>
             <a href="">Kontakt</a>
             <a href="">Blog</a>
             <div class="navLang">
@@ -114,15 +114,6 @@
           </a>
         </div>
       </section>
-    </article>
-
-        <div id="confirmModal" class="modal show">
-            <img src="/2019/img/skeumins/letter.svg" alt="">
-            <h4>Vielen Dank!</h4>
-            <p>Deine E-Mail-Adresse wurde<br>erfolgreich bestätigt.</p>
-            <a href="/index.html" rel="modal:close" class="btn center">Fenster schließen</a>
-        </div>
-        </div>
 
         <div class="modal-wrapper">
             <div id="fffModal" class="modal">
@@ -133,7 +124,7 @@
                 <img src="content/img/fff-c-modal.png" />
               </div>
                 <div class="form">
-                    <form action="/index.html" method="POST" data-consultation="sales" data-parsley-validate>
+                    <form action="/public/about.php" method="POST" data-consultation="sales" data-parsley-validate>
                         <div class="form-parsley firstname">
                             <label>Vorname*</label>
                             <input name="firstName" type="text" class="form-field" data-parsley-trigger="change"
@@ -203,9 +194,6 @@
                 <a href="" rel="modal:close" class="btn">Close</a>
             </div>
         </div>
-        <?php
-        endif;
-    ?>
   </main>
   <footer>
     <section id="mobile">
@@ -334,12 +322,104 @@
                 }, 2000))
             }
         })();
-        
+          $(document).ready(function() {
+          console.log( "Validate Ready" );
+          $('form').each(function () {
+            const e = $(this);
+              let a = e.parsley()
+            e.find('input, select').on('change keyup', () => {
+              e.toggleClass('valid', a.isValid())
+            })
+          }),
+          $(':input').inputmask()
+          var e = new Date();
+            var a =
+              ('0' + e.getDate()).slice(-2) +
+              '.' +
+              ('0' + (e.getMonth() + 1)).slice(-2) +
+              '.' +
+              e.getFullYear()
+          e.setFullYear(e.getFullYear() - 16)
+          var i =
+            ('0' + e.getDate()).slice(-2) +
+            '.' +
+            ('0' + (e.getMonth() + 1)).slice(-2) +
+            '.' +
+            e.getFullYear()
+          e.setFullYear(e.getFullYear() - 84)
+          var n =
+            ('0' + e.getDate()).slice(-2) +
+            '.' +
+            ('0' + (e.getMonth() + 1)).slice(-2) +
+            '.' +
+            e.getFullYear()
+          window.Parsley.addValidator('validDate', {
+            validateString: t => !t.match(/[a-z]/i),
+            messages: { de: 'Kein gültiges Datum', en: 'Invalid date' }
+          }),
+          window.Parsley.addValidator('fullAge', {
+            validateString: t => parseInt(t) >= 18,
+            messages: {
+              de: 'Du musst mindestens 18 Jahre alt sein.',
+              en: 'You have to be at least 18 years old.'
+            }
+          }),
+          window.Parsley.addValidator('curDe', {
+            validateString: function (t) {
+              return (function validateCurDE (t) {
+                return parseFloat(t.replace(/\./g, '')) >= 62550
+                })(t)
+              },
+            messages: {
+              de: 'Dein Gehalt ist leider zu niedrig, um dich privat zu versichern.'
+            }
+          }),
+          $('.birthdayMask').inputmask({
+            alias: 'datetime',
+            inputFormat: 'dd.mm.yyyy',
+            placeholder: 'TT.MM.JJJJ',
+            outputFormat: 'yyyy-mm-dd',
+            autoUnmask: !0,
+            min: n,
+            max: a
+          }),
+          $('.birthdayMask16').inputmask({
+            alias: 'datetime',
+            inputFormat: 'dd.mm.yyyy',
+            placeholder: 'TT.MM.JJJJ',
+            outputFormat: 'yyyy-mm-dd',
+            autoUnmask: !0,
+            min: n,
+            max: i
+          }),
+          $('.birthdayMaskEn').inputmask({
+            alias: 'datetime',
+            inputFormat: 'dd.mm.yyyy',
+            placeholder: 'DD.MM.YYYY',
+            outputFormat: 'yyyy-mm-dd',
+            autoUnmask: !0,
+            min: n,
+            max: a
+          }),
+          $('.dateMaskNow').inputmask({
+            alias: 'datetime',
+            inputFormat: 'dd.mm.yyyy',
+            placeholder: 'TT.MM.JJJJ',
+            outputFormat: 'yyyy-mm-dd',
+            autoUnmask: !0,
+            min: a
+          }),
+          $('select')
+            .on('change', function (t) {
+              $(this).toggleClass('empty', $(this).val() === '')
+              })
+            .trigger('change')
+          var s = { modal: null, phone: null }
+        });
 
     </script>
-    <script type="text/javascript" src="/js/main.js"></script>
-    <script type="text/javascript" src="/js/libs.js"></script>
-    <script type="text/javascript" src="/js/form-validate.js"></script>
+    <script type="text/javascript" src='/js/main.js'></script>
+    <script type="text/javascript" src='/js/libs.js'></script>
 </body>
 
 </html>
