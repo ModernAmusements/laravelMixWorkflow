@@ -19,7 +19,7 @@ if(isset($_POST['email'])) {
  
         echo "<h1>Whoops!</h1><h2>There appears to be something wrong with your completed form.</h2>";
  
-        echo "<strong><p>The following items are not specified correctly.</p></strong><br />";
+        echo "<strong><p>The following Penis items are not specified correctly.</p></strong><br />";
  
         echo $error."<br /><br />";
  
